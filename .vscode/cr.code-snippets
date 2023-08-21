@@ -1,0 +1,24 @@
+{
+    "Create a React component": {
+		"prefix": "rc",
+		"body": [
+            "import { classNames } from 'shared/lib/classNames/classNames';",
+            "import cls from './${1:${TM_FILENAME_BASE}}.module.scss';",
+            "",
+            "interface ${1:${TM_FILENAME_BASE}}Props {",
+            "\tclassName?: string,",
+            "}",
+            "",
+            "const ${1:${TM_FILENAME_BASE}} = ({className}: ${1:${TM_FILENAME_BASE}}Props) => {",
+            "\treturn (",
+            "\t\t<div className={classNames(cls.${1:${TM_FILENAME_BASE}}, {}, [className])}>",
+            "",
+            "\t\t</div>",
+            "\t)",
+            "}",
+            "",
+            "export { ${1:${TM_FILENAME_BASE}} };",
+		],
+		"description": "Create a React functional component using TypeScript and SCSS modules"
+	},
+}
