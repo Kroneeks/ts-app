@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfloristby=self.webpackChunkfloristby||[]).push([[221],{221:(e,r,s)=>{s.r(r),s.d(r,{default:()=>u});var a=s(893),t=s(72);const u=function(){var e=(0,t.$G)("about").t;return(0,a.jsx)("div",{className:"page-wrapper",children:e("О сайте")})}}}]);

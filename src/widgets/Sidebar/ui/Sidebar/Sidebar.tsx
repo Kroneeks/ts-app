@@ -17,8 +17,8 @@ const Sidebar = ({ className = '' }: SidebarProps): React.ReactElement => {
   }
 
   return (
-      <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-          <Button theme={ButtonTheme.CLEAR} onClick={onToggle}>x</Button>
+      <div data-testid="sidebar-test" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+          <Button data-testid="sidebar-button" theme={ButtonTheme.CLEAR} onClick={onToggle}>x</Button>
           <div className={classNames(cls.switchers)}>
               <ThemeSwitcher />
               <LangSwitcher className={cls.lang} />
