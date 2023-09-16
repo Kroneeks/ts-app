@@ -36,8 +36,16 @@
         "@typescript-eslint/no-floating-promises": "warn",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
-        "i18next/no-literal-string": ["error", {"markupOnly": true}],
+        "i18next/no-literal-string": ["error", {"markupOnly": true, "ignoreAttribute": ["data-testid"]}],
         "@typescript-eslint/explicit-function-return-type": "off",
         "n/handle-callback-err": "off"
-    }
+    },
+    "overrides": [
+        {
+            "files": ["**/src/**/*.test.{ts,tsx}"],
+            "rules": {
+                "i18next/no-literal-string": "off"
+            }
+        }
+    ]
 }
