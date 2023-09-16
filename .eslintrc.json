@@ -36,6 +36,8 @@
         "@typescript-eslint/no-floating-promises": "warn",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
-        "i18next/no-literal-string": ["error", {"markupOnly": true}]
+        "i18next/no-literal-string": ["error", {"markupOnly": true}],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "n/handle-callback-err": "off" 
     }
 }

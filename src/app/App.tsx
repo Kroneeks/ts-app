@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 
 export const App = (): React.ReactElement => {
   const { theme, toggleTheme } = useTheme()
