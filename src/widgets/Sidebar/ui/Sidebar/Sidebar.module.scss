@@ -13,7 +13,7 @@
 
 .Sidebar button {
     top: 10px;
-    right: 10px;
+    right: 25px;
     color: var(--inverted-secondary-color);
 }
 
@@ -27,4 +27,9 @@
 
 .lang {
     margin-left: 20px;
+}
+
+.ToggleIcon {
+    width: 30px;
+    height: 30px;
 }

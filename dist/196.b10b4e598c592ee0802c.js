@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfloristby=self.webpackChunkfloristby||[]).push([[196],{196:(e,r,s)=>{s.r(r),s.d(r,{default:()=>n});var a=s(893),t=s(72);const n=function(){var e=(0,t.$G)("main").t;return(0,a.jsx)("div",{className:"page-wrapper",children:e("Главная страница")})}}}]);

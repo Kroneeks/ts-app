@@ -6,45 +6,89 @@
     "extends": [
         "standard-with-typescript",
         "plugin:react/recommended",
-        "plugin:i18next/recommended"
+        "plugin:i18next/recommended",
+        "plugin:storybook/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
-        "sourceType": "module"
-        // "project": ["./tsconfig.json"]
+        "sourceType": "module",
+        "project": [
+            "./tsconfig.json"
+        ]
     },
     "plugins": [
         "react",
-        "i18next"
+        "i18next",
+        "@typescript-eslint"
     ],
     "rules": {
         "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": ["error"],
-        "react/jsx-filename-extension": [ 2, {"extensions": ["js", "jsx", ".tsx"]} ],
+        "@typescript-eslint/no-use-before-define": [
+            "error"
+        ],
+        "react/jsx-filename-extension": [
+            2,
+            {
+                "extensions": [
+                    "js",
+                    "jsx",
+                    ".tsx"
+                ]
+            }
+        ],
         "import/prefer-default-export": "off",
         "react/prop-types": "off",
         "@typescript-eslint/strict-boolean-expressions": "warn",
         "react/react-in-jsx-scope": "off",
         "react/jsx-uses-react": "off",
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
+        "react/jsx-indent": [
+            2,
+            4
+        ],
+        "react/jsx-indent-props": [
+            2,
+            4
+        ],
         "import/no-unresolved": "off",
         "no-unused-vars": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
         "react/require-default-props": "off",
-        "react/jsx-props-no-spreading": "warn",
+        "react/jsx-props-no-spreading": "off",
         "@typescript-eslint/no-floating-promises": "warn",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
-        "i18next/no-literal-string": ["error", {"markupOnly": true, "ignoreAttribute": ["data-testid"]}],
+        "i18next/no-literal-string": [
+            "error",
+            {
+                "markupOnly": true,
+                "ignoreAttribute": [
+                    "data-testid"
+                ]
+            }
+        ],
         "@typescript-eslint/explicit-function-return-type": "off",
         "n/handle-callback-err": "off"
     },
+    "ignorePatterns": [
+        "webpack.config.ts",
+        "**/config/**/*"
+    ],
     "overrides": [
         {
-            "files": ["**/src/**/*.test.{ts,tsx}"],
+            "files": [
+                "**/src/**/*.test.{ts,tsx}"
+            ],
             "rules": {
                 "i18next/no-literal-string": "off"
+            },
+            "extends": [
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@typescript-eslint/recommended-requiring-type-checking"
+            ],
+            "parserOptions": {
+                "project": [
+                    "./tsconfig.json"
+                ]
             }
         }
     ]
