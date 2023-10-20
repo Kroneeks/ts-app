@@ -6,7 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export function buildPlugins ({ paths, isDev }: buildOptions): WebpackPluginInstance[] {
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({ template: paths.html }),
     new ProgressPlugin(),
     new MiniCssExtractPlugin({
@@ -15,11 +15,17 @@ export function buildPlugins ({ paths, isDev }: buildOptions): WebpackPluginInst
     }),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
-    }),
-    new HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
     })
-    /* isDev && new ReactRefreshWebpackPlugin() */
-  ]
+  ];
+
+  if (isDev) {
+    plugins.push(
+      new HotModuleReplacementPlugin(),
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false
+      })
+    )
+  }
+
+  return plugins;
 }
