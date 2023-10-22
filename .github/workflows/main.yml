@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [ 18.x ]
 
     steps:
       - uses: actions/checkout@v2
@@ -20,13 +20,18 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install
+        if: always()
       - name: build production project
         run: npm run build:prod
+        if: always()
       - name: linting typescript
         run: npm run lint:ts
+        if: always()
       - name: linting css 
         run: npm run lint:scss
+        if: always()
       - name: unit testing
         run: npm run test:unit
+        if: always()
       - name: screenshot testing 
         run: npm run test:ui:live
