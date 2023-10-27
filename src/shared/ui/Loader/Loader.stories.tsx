@@ -21,7 +21,7 @@ const meta = {
 
 type Story = StoryObj<typeof meta>
 
-export const Standart: Story = {
+export const Light: Story = {
   render: () => <Loader />
 }
 export default meta

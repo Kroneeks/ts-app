@@ -19,7 +19,8 @@
     "plugins": [
         "react",
         "i18next",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "react-hooks"
     ],
     "rules": {
         "no-use-before-define": "off",
@@ -67,7 +68,9 @@
             }
         ],
         "@typescript-eslint/explicit-function-return-type": "off",
-        "n/handle-callback-err": "off"
+        "n/handle-callback-err": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
     },
     "ignorePatterns": [
         "webpack.config.ts",
@@ -76,7 +79,7 @@
     "overrides": [
         {
             "files": [
-                "**/src/**/*.test.{ts,tsx}"
+                "**/src/**/*.{test, stories}.{ts,tsx}"
             ],
             "rules": {
                 "i18next/no-literal-string": "off"
