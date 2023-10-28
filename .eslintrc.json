@@ -70,7 +70,8 @@
         "@typescript-eslint/explicit-function-return-type": "off",
         "n/handle-callback-err": "off",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error"
+        "react-hooks/exhaustive-deps": "error",
+        "no-param-reassign": "off"
     },
     "ignorePatterns": [
         "webpack.config.ts",
