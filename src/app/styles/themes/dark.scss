@@ -1,4 +1,4 @@
-.app.dark {
+body .dark {
     --bg-color: #000050;
     --inverted-bg-color: #e8e8ea;
     --primary-color: #3f8f3f;
@@ -10,4 +10,5 @@
 body .modal.dark {
     --modal-bg-color: #000050;
     --modal-primary-color: #3f8f3f;
+    --modal-input-border: #e8e8ea;
 }
