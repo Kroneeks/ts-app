@@ -2,15 +2,18 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import MainPage from './MainPage'
 import { BrowserRouter } from 'react-router-dom'
+import { StoreProvider } from 'app/providers/StoreProvider'
 
 const meta = {
   title: 'pages/MainPage',
   component: MainPage,
   decorators: [
     (Story) => (
-        <BrowserRouter>
-            <Story />
-        </BrowserRouter>
+        <StoreProvider>
+            <BrowserRouter>
+                <Story />
+            </BrowserRouter>
+        </StoreProvider>
     )
   ],
   parameters: {
@@ -21,7 +24,8 @@ const meta = {
 
 type Story = StoryObj<typeof meta>
 
-export const Standart: Story = {
-  render: () => <MainPage />
+export const Clear: Story = {
+  args: {
+  }
 }
 export default meta
