@@ -1,16 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Navbar } from './Navbar'
-import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { type StateSchema, createReduxStore } from 'app/providers/StoreProvider'
+
+const store = createReduxStore({} as StateSchema)
 
 const meta = {
   title: 'widgets/Navbar',
   component: Navbar,
   decorators: [
     (Story) => (
-        <BrowserRouter>
+        <Provider store={store}>
             <Story />
-        </BrowserRouter>
+        </Provider>
     )
   ],
   parameters: {

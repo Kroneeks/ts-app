@@ -39,7 +39,7 @@
         ],
         "import/prefer-default-export": "off",
         "react/prop-types": "off",
-        "@typescript-eslint/strict-boolean-expressions": "warn",
+        "@typescript-eslint/strict-boolean-expressions": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-uses-react": "off",
         "react/jsx-indent": [

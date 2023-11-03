@@ -1,5 +1,6 @@
 {
     "Тестовый пример": "Test example",
     "Язык": "English",
-    "Короткий язык": "En"
+    "Короткий язык": "En",
+    "Вы ввели неверный логин или пароль": "We cannot find an account with that login or password! Try again."
 }

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { LoginForm } from './LoginForm'
 import { BrowserRouter } from 'react-router-dom'
+import { StoreProvider } from 'app/providers/StoreProvider'
 
 const meta = {
   title: 'features/LoginForm',
@@ -9,7 +10,9 @@ const meta = {
   decorators: [
     (Story) => (
         <BrowserRouter>
-            <Story />
+            <StoreProvider>
+                <Story />
+            </StoreProvider>
         </BrowserRouter>
     )
   ],

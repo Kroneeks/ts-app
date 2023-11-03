@@ -2,11 +2,14 @@ import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 import { StateSchema } from "./StateSchema";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
+import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
+import { useDispatch } from "react-redux";
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
-        user: userReducer
+        user: userReducer,
+        loginForm: loginReducer
     }
 
     return configureStore<StateSchema>({
@@ -15,3 +18,9 @@ export function createReduxStore(initialState?: StateSchema) {
         preloadedState: initialState
     })
 }
+
+// !!! Change after all
+// Make hooks for redux and add middleware
+export type AppState = ReturnType<typeof createReduxStore>
+export type AppDispatch = AppState['dispatch'] 
+export const useAppDispatch = () => useDispatch<AppDispatch>()
