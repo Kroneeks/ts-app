@@ -3,7 +3,7 @@ import cls from './LoginForm.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { memo, useCallback } from 'react'
 import { loginActions } from '../../model/slice/loginSlice'
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
@@ -35,7 +35,7 @@ const LoginForm = memo(({ className = '' }: LoginFormProps) => {
   return (
       <div className={classNames(cls.LoginForm, {}, [className])}>
           <Text title={t('Форма авторизации')} className={cls.loginTitle} />
-          {error && <Text text={error} theme={TextTheme.ERROR} className={cls.loginError} />}
+          {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} className={cls.loginError} />}
           <Input value={username} onChange={onChangeUsername} placeholder='Введите логин' />
           <Input value={password} onChange={onChangePassword} placeholder='Введите пароль'/>
           <Button onClick={onLoginClick} className={cls.loginBtn} disabled={isLoading}>{t('Войти')}</Button>

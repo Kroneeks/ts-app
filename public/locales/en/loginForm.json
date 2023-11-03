@@ -1,4 +1,5 @@
 {
     "Форма авторизации": "Sign in",
-    "Войти": "Login"
+    "Войти": "Login",
+    "Вы ввели неверный логин или пароль": "We cannot find an account with that login or password! Try again."
 }
