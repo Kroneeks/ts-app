@@ -18,12 +18,13 @@ export function buildPlugins ({ paths, isDev }: buildOptions): WebpackPluginInst
     })
   ];
 
+  plugins.push(new BundleAnalyzerPlugin({
+    openAnalyzer: false
+  }))
+
   if (isDev) {
     plugins.push(
       new HotModuleReplacementPlugin(),
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false
-      })
     )
   }
 

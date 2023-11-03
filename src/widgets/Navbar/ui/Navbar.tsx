@@ -47,7 +47,9 @@ const Navbar = ({ className = '' }: NavbarProps): React.ReactElement => {
               {t('Войти')}
           </Button>
           <Portal>
+              { isAuthModal &&
               <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            }
           </Portal>
       </div>
   )
