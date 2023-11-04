@@ -30,4 +30,3 @@ export function createReduxStore(initialState?: StateSchema) {
 // Make hooks for redux and add middleware
 export type AppState = ReturnType<typeof createReduxStore>
 export type AppDispatch = AppState['dispatch'] 
-export const useAppDispatch = () => useDispatch<AppDispatch>()

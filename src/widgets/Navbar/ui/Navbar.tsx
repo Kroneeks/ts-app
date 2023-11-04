@@ -1,19 +1,19 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Portal } from 'shared/ui/Portal/Portal'
 import { LoginModal } from 'features/AuthByUsername'
 import { useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
-import { useAppDispatch } from 'app/providers/StoreProvider/config/store'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface NavbarProps {
   className?: string
 }
 
-const Navbar = ({ className = '' }: NavbarProps): React.ReactElement => {
+const Navbar = memo(({ className = '' }: NavbarProps): React.ReactElement => {
   const { t } = useTranslation('navbar')
   const [isAuthModal, setIsAuthModal] = useState(false)
   const authData = useSelector(getUserAuthData)
@@ -53,6 +53,8 @@ const Navbar = ({ className = '' }: NavbarProps): React.ReactElement => {
           </Portal>
       </div>
   )
-}
+})
+
+Navbar.displayName = 'Navbar'
 
 export { Navbar }

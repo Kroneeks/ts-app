@@ -15,5 +15,14 @@
   "comments": [
     { "id": "1", "body": "some comment", "postId": "1" }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { 
+    "first": "Саша",
+    "lastname": "Фамилия",
+    "age": 22,
+    "currency": "USD",
+    "country": "Lithuania",
+    "city": "Vilnius",
+    "username": "admin",
+    "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
+   }
 }
