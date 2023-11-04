@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import ProfilePage from './ProfilePage'
 import { BrowserRouter } from 'react-router-dom'
+import { StoreProvider } from 'app/providers/StoreProvider'
 
 const meta = {
   title: 'pages/ProfilePage',
@@ -9,7 +10,9 @@ const meta = {
   decorators: [
     (Story) => (
         <BrowserRouter>
-            <Story />
+            <StoreProvider>
+                <Story />
+            </StoreProvider>
         </BrowserRouter>
     )
   ],

@@ -12,15 +12,15 @@ const preview: Preview = {
   decorators: [
     (Story) => (
         <BrowserRouter>
-            <StoreProvider>
-              <ThemeProvider>
-                <I18nextProvider i18n={i18nForTests}>
-                    <Suspense fallback="">
-                      <Story />
-                    </Suspense>
-                </I18nextProvider>
-              </ThemeProvider>
-            </StoreProvider>
+            <ThemeProvider>
+              <I18nextProvider i18n={i18nForTests}>
+                <Suspense fallback="">
+                  <StoreProvider>
+                    <Story />
+                  </StoreProvider>
+                </Suspense>
+              </I18nextProvider>
+            </ThemeProvider>
         </BrowserRouter>
     ),
   ],
