@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { useEffect, type ReactNode, useCallback, useState } from 'react'
 
@@ -13,7 +13,7 @@ interface ModalProps {
 const Modal = (props: ModalProps) => {
   const { className = '', children, isOpen = false, onClose, lazy = true } = props
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen
   }
 

@@ -9,11 +9,11 @@ const meta = {
   component: MainPage,
   decorators: [
     (Story) => (
-        <StoreProvider>
-            <BrowserRouter>
+        <BrowserRouter>
+            <StoreProvider>
                 <Story />
-            </BrowserRouter>
-        </StoreProvider>
+            </StoreProvider>
+        </BrowserRouter>
     )
   ],
   parameters: {

@@ -22,6 +22,10 @@
         "@typescript-eslint",
         "react-hooks"
     ],
+    "globals": {
+        "__IS_DEV__": true,
+        "__API__": true
+    },
     "rules": {
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": [
@@ -71,7 +75,14 @@
         "n/handle-callback-err": "off",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "@typescript-eslint/no-misused-promises": [
+            "error",
+            {
+            "checksVoidReturn": false
+            }
+        ],
+        "@typescript-eslint/no-invalid-void-type": "off"
     },
     "ignorePatterns": [
         "webpack.config.ts",
