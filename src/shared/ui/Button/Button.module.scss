@@ -19,12 +19,20 @@
     color: var(--inverted-primary-color);
 }
 
-.outline {
+.outline, .outline_red {
     padding: 10px 15px;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
     background: none;
     font-size: var(--font-size-m)
+}
+
+.outline {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.outline_red {
+    border: 1px solid var(--red-light);
+    color: var(--red-light);
 }
 
 .square {
