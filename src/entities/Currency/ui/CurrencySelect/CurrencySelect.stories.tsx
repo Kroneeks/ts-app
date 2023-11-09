@@ -25,5 +25,11 @@ type Story = StoryObj<typeof meta>
 
 export const Clear: Story = {
   args: {
+    readonly: false
+  }
+}
+
+export const Readonly: Story = {
+  args: {
   }
 }

@@ -14,5 +14,10 @@
     "Ошибка": "Error",
     "Непредвиденная ошибка": "An unexpected error occurred, please refresh the page",
     "Укажите валюту": "Choose currency",
-    "Укажите страну": "Choose country"
+    "Укажите страну": "Choose country",
+    "Серверная ошибка": "A server error occurred while saving",
+    "Некорректный возраст": "Incorrect age",
+    "Некорректный регион": "Incorrect region",
+    "Имя и фамилия обязательны": "Name and surname are required",
+    "Данные не указаны": "Data not provided"
 }

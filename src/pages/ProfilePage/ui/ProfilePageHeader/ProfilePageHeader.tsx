@@ -28,7 +28,6 @@ const ProfilePageHeader = ({ className = '' }: ProfilePageHeaderProps) => {
 
   const onSave = useCallback(() => {
     void dispatch(updateProfileData())
-    dispatch(profileActions.saveProfile())
   }, [dispatch])
 
   return (

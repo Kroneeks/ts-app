@@ -4,7 +4,7 @@ import { type buildOptions } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
-export function buildPlugins ({ paths, isDev, apiURL }: buildOptions): WebpackPluginInstance[] {
+export function buildPlugins ({ paths, isDev, apiURL, project }: buildOptions): WebpackPluginInstance[] {
   const plugins = [
     new HtmlWebpackPlugin({ template: paths.html }),
     new ProgressPlugin(),
@@ -14,7 +14,8 @@ export function buildPlugins ({ paths, isDev, apiURL }: buildOptions): WebpackPl
     }),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
-      __API__: JSON.stringify(apiURL)
+      __API__: JSON.stringify(apiURL),
+      __PROJECT__: JSON.stringify(project)
     })
   ];
 

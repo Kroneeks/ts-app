@@ -30,6 +30,7 @@ export const Clear: Story = {
       { value: '1', content: 'Первый пункт' },
       { value: '2', content: 'Второй пункт' },
       { value: '3', content: 'Третий пункт' }
-    ]
+    ],
+    readonly: false
   }
 }

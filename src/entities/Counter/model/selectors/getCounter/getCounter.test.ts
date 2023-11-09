@@ -4,9 +4,11 @@ import { type DeepPartial } from '@reduxjs/toolkit'
 
 describe('getCounter', () => {
   it('shoult return counter value', () => {
+    const counter = { value: 10 }
+
     const state: DeepPartial<StateSchema> = {
-      counter: { value: 10 }
+      counter
     }
-    expect(getCounter(state as StateSchema)).toEqual({ value: 10 })
+    expect(getCounter(state as StateSchema)).toEqual(counter)
   })
 })
