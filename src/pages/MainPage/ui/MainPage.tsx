@@ -12,7 +12,7 @@ const MainPage = (): React.ReactElement => {
   }
 
   return (
-      <div className="page-wrapper">
+      <div className="page-wrapper" style={{ color: 'blue' }}>
           {t('Главная страница')}
           <Counter />
           <Input value={value} onChange={onChange} />
