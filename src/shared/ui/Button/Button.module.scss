@@ -5,6 +5,11 @@
     align-items: center;
     position: relative;
     padding: 10px 15px;
+    transition: 0.3s ease all;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .clear, .clearInverted {

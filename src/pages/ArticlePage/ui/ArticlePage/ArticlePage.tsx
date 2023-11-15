@@ -11,8 +11,8 @@ const ArticlePage = memo(({ className = '' }: ArticlePageProps) => {
   const { t } = useTranslation()
 
   return (
-      <div className={classNames(cls.ArticlePage, {}, [className])}>
-          ARTICLE PAGE
+      <div className={classNames(cls.ArticlePage, {}, [className, 'page-wrapper'])}>
+          {t('ArticlePage')}
       </div>
   )
 })

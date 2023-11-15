@@ -1,4 +1,7 @@
 :root {
+    --font-size-sm: 12px;
+    --font-line-sm: 16px;
+    --font-sm: var(--font-size-sm) / var(--font-line-sm) var(--font-family-main);
     --font-family-main: 'Tahoma', 'Arial', serif;
     --font-size-m: 20px;
     --font-line-m: 24px;
@@ -17,6 +20,10 @@
     --avatar-small-size: 40px;
     --avatar-normal-size: 70px;
     --avatar-large-size: 100px;
+    --icon-s-size: 20px;
+    --icon-m-size: 40px;
+    --icon-l-size: 60px;
+    --icon-xl-size: 80px;
 
     // z - Индексы
     --modal-z-index: 10;
@@ -34,4 +41,6 @@
     --secondary-color: #003500;
     --inverted-primary-color: #020074;
     --inverted-secondary-color: #264bf0;
+    --skeleton-color: #1515ad;
+    --skeleton-shadow: #2b2be8;
 }
