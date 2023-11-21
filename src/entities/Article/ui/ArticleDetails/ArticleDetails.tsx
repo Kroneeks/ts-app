@@ -49,7 +49,9 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
   }, [])
 
   useEffect(() => {
-    dispatch(fetchArticleById(id))
+    if (__PROJECT__ !== 'storybook') {
+      void dispatch(fetchArticleById(id))
+    }
   }, [dispatch, id])
 
   let content

@@ -11,7 +11,8 @@ const data = {
   age: 22,
   country: Country.Lithuania,
   currency: Currency.EUR,
-  city: 'Vilnius'
+  city: 'Vilnius',
+  id: '1'
 }
 
 describe('updateProfileData.test', () => {
