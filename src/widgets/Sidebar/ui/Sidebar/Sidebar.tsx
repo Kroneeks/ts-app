@@ -6,8 +6,9 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 
 import ToggleIcon from 'shared/assets/icons/toggle-sidebar.svg'
-import { SidebarItemsList } from '../../model/items'
 import { SidebarItem } from '../SidebarItem/ui/SidebarItem'
+import { useSelector } from 'react-redux'
+import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 
 interface SidebarProps {
   className?: string
@@ -15,24 +16,27 @@ interface SidebarProps {
 
 const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
   const [collapsed, setCollapsed] = useState(false)
+  const sidebarItemsList = useSelector(getSidebarItems)
 
   const onToggle = (): void => {
     setCollapsed(prev => !prev)
   }
 
   const itemsList = useMemo(() => {
-    return SidebarItemsList.map((item) =>
+    return sidebarItemsList.map((item) =>
         <SidebarItem
             item={item}
             key={item.path}
             collapsed={collapsed}
         />
     )
-  }, [collapsed])
+  }, [collapsed, sidebarItemsList])
 
   return (
       <div data-testid="sidebar-test" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-          <Button data-testid="sidebar-button" className={cls.collapseBtn} theme={ButtonTheme.CLEAR} size={ButtonSize.XL} onClick={onToggle} square><ToggleIcon className={classNames(cls.ToggleIcon)} fill="white" /></Button>
+          <Button data-testid="sidebar-button" className={cls.collapseBtn} theme={ButtonTheme.CLEAR} size={ButtonSize.XL} onClick={onToggle} square>
+              <ToggleIcon className={classNames(cls.ToggleIcon)} fill="white" />
+          </Button>
           <div className={cls.items}>
               {itemsList}
           </div>
