@@ -17,6 +17,7 @@ describe('articleDetails', () => {
       views: 13,
       blocks: [],
       createdAt: '12.12.2000',
+      user: { id: '1', username: 'sdfsd' },
       type: [ArticleType.IT]
     }
 
