@@ -83,7 +83,8 @@
             }
         ],
         "@typescript-eslint/no-invalid-void-type": "off",
-        "@typescript-eslint/prefer-nullish-coalescing": "warn"
+        "@typescript-eslint/prefer-nullish-coalescing": "warn",
+        "n/no-callback-literal": "off"
     },
     "ignorePatterns": [
         "webpack.config.ts",

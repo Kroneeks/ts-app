@@ -22,7 +22,10 @@ const initialState: StateSchema = {
     error: undefined
   },
   counter: { value: 1 },
-  user: { _inited: false }
+  user: { _inited: false },
+  ui: {
+    scroll: { articles: 0 }
+  }
 }
 
 const meta = {

@@ -2,7 +2,7 @@ import { Counter } from 'entities/Counter'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Input } from 'shared/ui/Input/Input'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page/Page'
 
 const MainPage = (): React.ReactElement => {
   const { t } = useTranslation('main')
