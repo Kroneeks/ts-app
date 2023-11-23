@@ -33,16 +33,16 @@ const Navbar = memo(({ className = '' }: NavbarProps): React.ReactElement => {
 
   if (authData) {
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout} className={classNames(cls.links)}>
                 {t('Выйти')}
             </Button>
-        </div>
+        </header>
     )
   }
 
   return (
-      <div className={classNames(cls.Navbar, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])}>
           <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal} className={classNames(cls.links)}>
               {t('Войти')}
           </Button>
@@ -51,7 +51,7 @@ const Navbar = memo(({ className = '' }: NavbarProps): React.ReactElement => {
               <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             }
           </Portal>
-      </div>
+      </header>
   )
 })
 

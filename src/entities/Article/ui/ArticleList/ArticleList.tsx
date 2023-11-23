@@ -21,16 +21,8 @@ const ArticleList = (props: ArticleListProps) => {
   const { className = '', articles, isLoading, view = ArticleView.BLOCK } = props
   const { t } = useTranslation()
 
-  if (isLoading) {
-    return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {getSkeletons(view)}
-        </div>
-    )
-  }
-
   const renderArticle = (article: Article) => (
-      <ArticleListItem article={article} view={view} />
+      <ArticleListItem key={article.id} article={article} view={view} />
   )
 
   return (
@@ -39,6 +31,7 @@ const ArticleList = (props: ArticleListProps) => {
             ? articles.map(renderArticle)
             : null}
 
+          {isLoading && getSkeletons(view)}
       </div>
   )
 }

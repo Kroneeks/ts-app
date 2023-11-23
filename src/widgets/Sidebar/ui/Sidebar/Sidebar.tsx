@@ -33,7 +33,7 @@ const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
   }, [collapsed, sidebarItemsList])
 
   return (
-      <div data-testid="sidebar-test" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+      <menu data-testid="sidebar-test" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
           <Button data-testid="sidebar-button" className={cls.collapseBtn} theme={ButtonTheme.CLEAR} size={ButtonSize.XL} onClick={onToggle} square>
               <ToggleIcon className={classNames(cls.ToggleIcon)} fill="white" />
           </Button>
@@ -44,7 +44,7 @@ const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
               <ThemeSwitcher />
               <LangSwitcher className={cls.lang} short={collapsed} />
           </div>
-      </div>
+      </menu>
   )
 })
 
