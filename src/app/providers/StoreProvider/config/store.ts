@@ -8,16 +8,18 @@ import { NavigateOptions, To } from "react-router-dom";
 
 export function createReduxStore(
         initialState?: StateSchema,
-        navigate?: (to: To, options?: NavigateOptions) => void
+        asyncReducers?: ReducersMapObject<StateSchema>
+        /* navigate?: (to: To, options?: NavigateOptions) => void, */
     ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         counter: counterReducer,
         user: userReducer
     }
 
     const extraArg: ThunkExtraArg = {
         api: $api,
-        navigate
+        /* navigate */
     }
 
     const reducerManager = createReducerManager(rootReducers)

@@ -15,7 +15,8 @@ describe('fetchNextArticlesPage.test', () => {
         limit: 5,
         isLoading: false,
         hasMore: true,
-        view: ArticleView.BLOCK
+        view: ArticleView.BLOCK,
+        _inited: false
       }
     })
     await thunk.callThunk()
@@ -31,7 +32,8 @@ describe('fetchNextArticlesPage.test', () => {
         limit: 5,
         isLoading: false,
         hasMore: false,
-        view: ArticleView.BLOCK
+        view: ArticleView.BLOCK,
+        _inited: false
       }
     })
     await thunk.callThunk()
@@ -47,7 +49,8 @@ describe('fetchNextArticlesPage.test', () => {
         limit: 5,
         isLoading: true,
         hasMore: true,
-        view: ArticleView.BLOCK
+        view: ArticleView.BLOCK,
+        _inited: false
       }
     })
     await thunk.callThunk()

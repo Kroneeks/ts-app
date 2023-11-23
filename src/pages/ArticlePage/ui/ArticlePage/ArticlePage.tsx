@@ -7,11 +7,11 @@ import { articlesPageActions, articlesPageReducer, getArticles } from '../../mod
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
 import { useSelector } from 'react-redux'
-import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageNum, getArticlesPageView } from '../../model/selectors/articlesPageSelector'
+import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelector'
 import { Page } from 'shared/ui/Page/Page'
-import { fetchNextArticlesPage } from 'pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 
 interface ArticlePageProps {
   className?: string
@@ -28,6 +28,7 @@ const ArticlePage = memo(({ className = '' }: ArticlePageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading)
   const error = useSelector(getArticlesPageError)
   const view = useSelector(getArticlesPageView)
+  const inited = useSelector(getArticlesPageInited)
 
   const onChangeView = useCallback((newView: ArticleView) => {
     dispatch(articlesPageActions.setView(newView))
@@ -38,14 +39,11 @@ const ArticlePage = memo(({ className = '' }: ArticlePageProps) => {
   }, [dispatch])
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState())
-    void dispatch(fetchArticlesList({
-      page: 1
-    }))
+    void dispatch(initArticlesPage())
   })
 
   return (
-      <DynamicModuleLoader reducers={reducers}>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
           <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlePage, {}, [className])}>
               <ArticleViewSelector view={view} onViewClick={onChangeView} />
               <ArticleList view={view} isLoading={isLoading} articles={articles} />
