@@ -43,8 +43,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 10223,
+      "createdAt": "26.01.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -67,8 +67,8 @@
       "title": "GO news",
       "subtitle": "Что нового в Go lang за 2022 год?",
       "img": "https://www.freecodecamp.org/news/content/images/2021/10/golang.png",
-      "views": 1022,
-      "createdAt": "28.03.2022",
+      "views": 10322,
+      "createdAt": "08.03.2022",
       "userId": "2",
       "type": [
         "IT"
@@ -91,8 +91,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://developer.okta.com/assets-jekyll/blog/tutorial-kotlin-beginners-guide/kotlin-logo-social-21c8518b19eb96d96f35e0057bb92b7e1281a24820e0fa09e39c42f184bd7faa.png",
-      "views": 1022,
-      "createdAt": "30.03.2022",
+      "views": 102,
+      "createdAt": "30.03.2021",
       "userId": "1",
       "type": [
         "IT"
@@ -115,8 +115,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 12022,
+      "createdAt": "26.08.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -139,8 +139,8 @@
       "title": "GO news",
       "subtitle": "Что нового в Go lang за 2022 год?",
       "img": "https://www.freecodecamp.org/news/content/images/2021/10/golang.png",
-      "views": 1022,
-      "createdAt": "28.03.2022",
+      "views": 104322,
+      "createdAt": "28.04.2023",
       "userId": "2",
       "type": [
         "IT"
@@ -163,8 +163,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://developer.okta.com/assets-jekyll/blog/tutorial-kotlin-beginners-guide/kotlin-logo-social-21c8518b19eb96d96f35e0057bb92b7e1281a24820e0fa09e39c42f184bd7faa.png",
-      "views": 1022,
-      "createdAt": "30.03.2022",
+      "views": 12,
+      "createdAt": "05.01.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -187,8 +187,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 102342,
+      "createdAt": "06.09.2021",
       "userId": "1",
       "type": [
         "IT"
@@ -211,11 +211,11 @@
       "title": "GO news",
       "subtitle": "Что нового в Go lang за 2022 год?",
       "img": "https://www.freecodecamp.org/news/content/images/2021/10/golang.png",
-      "views": 1022,
-      "createdAt": "28.03.2022",
+      "views": 6022,
+      "createdAt": "18.11.2022",
       "userId": "2",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -235,11 +235,11 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://developer.okta.com/assets-jekyll/blog/tutorial-kotlin-beginners-guide/kotlin-logo-social-21c8518b19eb96d96f35e0057bb92b7e1281a24820e0fa09e39c42f184bd7faa.png",
-      "views": 1022,
-      "createdAt": "30.03.2022",
+      "views": 1822,
+      "createdAt": "11.12.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -259,8 +259,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 22,
+      "createdAt": "05.06.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -283,8 +283,8 @@
       "title": "GO news",
       "subtitle": "Что нового в Go lang за 2022 год?",
       "img": "https://www.freecodecamp.org/news/content/images/2021/10/golang.png",
-      "views": 1022,
-      "createdAt": "28.03.2022",
+      "views": 18,
+      "createdAt": "28.03.2021",
       "userId": "2",
       "type": [
         "IT"
@@ -307,7 +307,7 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2022 год?",
       "img": "https://developer.okta.com/assets-jekyll/blog/tutorial-kotlin-beginners-guide/kotlin-logo-social-21c8518b19eb96d96f35e0057bb92b7e1281a24820e0fa09e39c42f184bd7faa.png",
-      "views": 1022,
+      "views": 1,
       "createdAt": "30.03.2022",
       "userId": "1",
       "type": [

@@ -10,10 +10,11 @@ interface InputProps extends HTMLInputProps {
   type?: string
   onChange?: (value: string) => void
   readonly?: boolean
+  placeholder?: string
 }
 
 const Input: FC<InputProps> = memo((props: InputProps) => {
-  const { className = '', value = '', type = 'text', onChange, readonly = false, ...otherProps } = props
+  const { className = '', value = '', type = 'text', placeholder = '', onChange, readonly = false, ...otherProps } = props
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value)
@@ -25,7 +26,7 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
 
   return (
       <div className={classNames(cls.Input, mods, [className])}>
-          <input type={type} value={value} readOnly={readonly} onChange={onChangeHandler} />
+          <input type={type} value={value} readOnly={readonly} onChange={onChangeHandler} placeholder={placeholder} />
       </div>
   )
 })

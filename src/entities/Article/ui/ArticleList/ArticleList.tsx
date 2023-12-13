@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ArticleView, type Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+import { Text } from 'shared/ui/Text/Text'
 
 interface ArticleListProps {
   className?: string
@@ -19,11 +20,19 @@ const getSkeletons = (view: ArticleView) => {
 
 const ArticleList = (props: ArticleListProps) => {
   const { className = '', articles, isLoading, view = ArticleView.BLOCK } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('article')
 
   const renderArticle = (article: Article) => (
       <ArticleListItem key={article.id} article={article} view={view} />
   )
+
+  if (!isLoading && !articles.length) {
+    return (
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            <Text title={t('Статьи не найдены')} />
+        </div>
+    )
+  }
 
   return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
