@@ -8,7 +8,7 @@ import { NavigateOptions, To } from "react-router-dom";
 import { AppDispatch } from "./store";
 import type {} from 'redux-thunk/extend-redux'
 import { ArticleDetailsSchema } from "entities/Article";
-import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
+import { ArticleDetailsCommentsSchema, ArticleDetailsPageSchema, ArticleDetailsRecomendationSchema } from "pages/ArticleDetailsPage";
 import { AddCommentFormSchema } from "features/AddCommentForm";
 import { ArticlesPageSchema } from "pages/ArticlePage";
 import { UISchema } from "features/UI";
@@ -22,9 +22,9 @@ export interface StateSchema {
     loginForm?: LoginSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
-    articleDetailsComments?: ArticleDetailsCommentsSchema
     addCommentForm?: AddCommentFormSchema
     articlesPage?: ArticlesPageSchema
+    articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

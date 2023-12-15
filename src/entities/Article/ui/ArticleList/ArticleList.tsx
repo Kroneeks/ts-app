@@ -5,12 +5,14 @@ import { ArticleView, type Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import { Text } from 'shared/ui/Text/Text'
+import { type HTMLAttributeAnchorTarget } from 'react'
 
 interface ArticleListProps {
   className?: string
   articles: Article[]
   isLoading?: boolean
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -19,11 +21,11 @@ const getSkeletons = (view: ArticleView) => {
 }
 
 const ArticleList = (props: ArticleListProps) => {
-  const { className = '', articles, isLoading, view = ArticleView.BLOCK } = props
+  const { className = '', articles, isLoading, view = ArticleView.BLOCK, target = '_blank' } = props
   const { t } = useTranslation('article')
 
   const renderArticle = (article: Article) => (
-      <ArticleListItem key={article.id} article={article} view={view} />
+      <ArticleListItem key={article.id} article={article} view={view} target={target} />
   )
 
   if (!isLoading && !articles.length) {

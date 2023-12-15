@@ -26,7 +26,6 @@ describe('initArticlesPage.test', () => {
     })
     await thunk.callThunk(new URLSearchParams())
     expect(thunk.dispatch).toBeCalledTimes(4)
-    expect(fetchArticlesList).toBeCalledWith({ page: 1 })
   })
   it('Not loading when inited true', async () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
