@@ -1,0 +1,23 @@
+{
+    "PROFILE PAGE": "Profile page",
+    "Редактировать": "Edit",
+    "Отменить": "Cancel",
+    "Сохранить": "Save",
+    "Профиль": "Profile",
+    "Ваше имя": "First name",
+    "Ваша фамилия": "Last name",
+    "Ваш возраст": "Your age",
+    "Город": "City",
+    "Имя пользователя": "Username",
+    "Введите ссылку на аватар": "Enter a link to your avatar",
+    "Аватар": "Avatar",
+    "Ошибка": "Error",
+    "Непредвиденная ошибка": "An unexpected error occurred, please refresh the page",
+    "Укажите валюту": "Choose currency",
+    "Укажите страну": "Choose country",
+    "Серверная ошибка": "A server error occurred while saving",
+    "Некорректный возраст": "Incorrect age",
+    "Некорректный регион": "Incorrect region",
+    "Имя и фамилия обязательны": "Name and surname are required",
+    "Данные не указаны": "Data not provided"
+}
