@@ -23,6 +23,7 @@ import { getArticleRecomendationsIsLoading } from '../../model/selectors/recomen
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
 import { articleDetailsPageReducer } from '../../model/slices'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
+import { fetchNextArticlesPage } from 'pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -55,6 +56,10 @@ const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
     void dispatch(fetchArticleRecommendations())
   })
 
+  const onLoadNextPart = useCallback(() => {
+    void dispatch(fetchNextArticlesPage())
+  }, [dispatch])
+
   if (!id) {
     return (
         <Page className={classNames('', {}, [className])}>
@@ -69,7 +74,7 @@ const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
               <ArticleDetailsPageHeader />
               <ArticleDetails id={id} />
               <Text size={TextSize.L} className={cls.commentsTitle} title={t('Рекомендуем')} />
-              <ArticleList articles={recomendations} isLoading={recomendationsIsLoading} className={cls.recommendations} target={'_blank'} />
+              <ArticleList onLoadNextPart={onLoadNextPart} articles={recomendations} isLoading={recomendationsIsLoading} className={cls.recommendations} target={'_blank'} />
               <Text size={TextSize.L} className={cls.commentsTitle} title={t('Комментарии')} />
               <AddCommentForm onSendComment={onSendComment} />
               <CommentList isLoading={commentsIsLoading} comments={comments} />

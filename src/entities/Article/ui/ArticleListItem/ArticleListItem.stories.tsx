@@ -107,6 +107,7 @@ type Story = StoryObj<typeof meta>
 export const Block: Story = {
   args: {
     view: ArticleView.BLOCK,
+    index: 1,
     article
   }
 }
@@ -114,6 +115,7 @@ export const Block: Story = {
 export const List: Story = {
   args: {
     view: ArticleView.LIST,
+    index: 1,
     article
   }
 }

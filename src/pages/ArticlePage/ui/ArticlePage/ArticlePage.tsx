@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticlePage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
@@ -9,11 +8,11 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelector'
-import { Page } from 'widgets/Page/Page'
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
-import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 import { useSearchParams } from 'react-router-dom'
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
+import { Page } from 'widgets/Page/Page'
 
 interface ArticlePageProps {
   className?: string
@@ -43,9 +42,9 @@ const ArticlePage = memo(({ className = '' }: ArticlePageProps) => {
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-          <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlePage, {}, [className])}>
+          <Page className={cls.ArticlePage}>
               <ArticlePageFilters />
-              <ArticleList view={view} isLoading={isLoading} articles={articles} className={cls.list} />
+              <ArticleList view={view} isLoading={isLoading} articles={articles} className={cls.list} onLoadNextPart={onLoadNextPart} />
           </Page>
       </DynamicModuleLoader>
   )
