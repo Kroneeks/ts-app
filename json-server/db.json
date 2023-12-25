@@ -687,6 +687,18 @@
       "userId": "2",
       "text": "Комментарий",
       "id": "b2TkjQg"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "Коммент",
+      "id": "m3wIgI7"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "Второй коммент",
+      "id": "8MGX02O"
     }
   ],
   "profile": [

@@ -9,6 +9,7 @@ import ToggleIcon from 'shared/assets/icons/toggle-sidebar.svg'
 import { SidebarItem } from '../SidebarItem/ui/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import { VStack } from 'shared/ui/Stack/VStack/VStack'
 
 interface SidebarProps {
   className?: string
@@ -37,9 +38,9 @@ const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
           <Button data-testid="sidebar-button" className={cls.collapseBtn} theme={ButtonTheme.CLEAR} size={ButtonSize.XL} onClick={onToggle} square>
               <ToggleIcon className={classNames(cls.ToggleIcon)} fill="white" />
           </Button>
-          <div className={cls.items}>
+          <VStack className={cls.items}>
               {itemsList}
-          </div>
+          </VStack>
           <div className={classNames(cls.switchers)}>
               <ThemeSwitcher />
               <LangSwitcher className={cls.lang} short={collapsed} />

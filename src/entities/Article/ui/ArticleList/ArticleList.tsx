@@ -20,7 +20,14 @@ interface ArticleListProps {
 }
 
 const ArticleList = (props: ArticleListProps) => {
-  const { className = '', articles, isLoading, view = ArticleView.BLOCK, target = '_blank', onLoadNextPart } = props
+  const {
+    className = '',
+    articles,
+    isLoading,
+    view = ArticleView.BLOCK,
+    target = '_blank',
+    onLoadNextPart
+  } = props
   const { t } = useTranslation('article')
   const [selectedArticleId, setSelectedArticleId] = useState(1)
   const virtuosoGridRef = useRef<VirtuosoGridHandle>(null)
@@ -49,7 +56,6 @@ const ArticleList = (props: ArticleListProps) => {
   }, [selectedArticleId, view])
 
   const renderArticle = (index: number, article: Article) => {
-    console.log(article)
     return (
         <ArticleListItem
             key={article.id}
@@ -85,8 +91,6 @@ const ArticleList = (props: ArticleListProps) => {
           <ArticleListItemSkeleton key={index} view={view} className={cls.card} />
       </div>
   )
-
-  console.log(view)
 
   return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
