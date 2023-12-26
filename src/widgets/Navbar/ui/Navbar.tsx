@@ -11,6 +11,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar'
 
 interface NavbarProps {
   className?: string
@@ -41,9 +43,21 @@ const Navbar = memo(({ className = '' }: NavbarProps): React.ReactElement => {
             <AppLink to={RoutePath.articleCreate} theme={AppLinkTheme.SECONDARY} className={cls.createBtn}>
                 {t('Создать статью')}
             </AppLink>
-            <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout} className={classNames(cls.links)}>
-                {t('Выйти')}
-            </Button>
+            <Dropdown
+                className={cls.dropdown}
+                direction='bottom left'
+                items={[
+                  {
+                    content: t('Профиль'),
+                    href: RoutePath.profile + authData.id
+                  },
+                  {
+                    content: t('Выйти'),
+                    onClick: onLogout
+                  }
+                ]}
+                trigger={<Avatar size={AvatarSize.SMALL} src={authData.avatar ?? ''} />}
+              />
         </header>
     )
   }
