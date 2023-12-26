@@ -34,18 +34,18 @@ const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
   }, [collapsed, sidebarItemsList])
 
   return (
-      <menu data-testid="sidebar-test" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+      <aside data-testid="sidebar-test" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
           <Button data-testid="sidebar-button" className={cls.collapseBtn} theme={ButtonTheme.CLEAR} size={ButtonSize.XL} onClick={onToggle} square>
               <ToggleIcon className={classNames(cls.ToggleIcon)} fill="white" />
           </Button>
-          <VStack className={cls.items}>
+          <VStack role="navigation" className={cls.items}>
               {itemsList}
           </VStack>
           <div className={classNames(cls.switchers)}>
               <ThemeSwitcher />
               <LangSwitcher className={cls.lang} short={collapsed} />
           </div>
-      </menu>
+      </aside>
   )
 })
 
