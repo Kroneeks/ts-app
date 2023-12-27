@@ -1,9 +1,9 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { CounterSchema } from "entities/Counter";
-import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUsername";
+import { ProfileSchema } from "features/editableProfileCard";
 import { NavigateOptions, To } from "react-router-dom";
 import { AppDispatch } from "./store";
 import type {} from 'redux-thunk/extend-redux'
@@ -12,11 +12,14 @@ import { ArticleDetailsCommentsSchema, ArticleDetailsPageSchema, ArticleDetailsR
 import { AddCommentFormSchema } from "features/AddCommentForm";
 import { ArticlesPageSchema } from "pages/ArticlePage";
 import { UISchema } from "features/UI";
+import { rtkApi } from "shared/api/rtkApi";
+
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
     ui: UISchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     // Async reducers
     loginForm?: LoginSchema
