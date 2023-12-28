@@ -1,6 +1,6 @@
 import cls from './ArticlePage.module.scss'
 import { useTranslation } from 'react-i18next'
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
@@ -10,6 +10,7 @@ import { useSearchParams } from 'react-router-dom'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 import { Page } from 'widgets/Page/Page'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
+import { fetchNextArticlesPage } from 'pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 
 interface ArticlePageProps {
   className?: string
@@ -28,11 +29,15 @@ const ArticlePage = memo(({ className = '' }: ArticlePageProps) => {
     void dispatch(initArticlesPage(searchParams))
   })
 
+  const onLoadNextPart = useCallback(() => {
+    void dispatch(fetchNextArticlesPage())
+  }, [dispatch])
+
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-          <Page className={cls.ArticlePage}>
+          <Page onScrollEnd={onLoadNextPart} className={cls.ArticlePage}>
               <ArticlePageFilters />
-              <ArticleInfiniteList />
+              <ArticleInfiniteList onLoadNextPart={onLoadNextPart} className={cls.list} />
           </Page>
       </DynamicModuleLoader>
   )

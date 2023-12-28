@@ -17,6 +17,7 @@ interface ArticleListProps {
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
   onLoadNextPart: () => void
+  virtualized?: boolean
 }
 
 const ArticleList = (props: ArticleListProps) => {
@@ -26,15 +27,21 @@ const ArticleList = (props: ArticleListProps) => {
     isLoading,
     view = ArticleView.BLOCK,
     target = '_blank',
-    onLoadNextPart
+    onLoadNextPart,
+    virtualized = false
   } = props
   const { t } = useTranslation('article')
   const [selectedArticleId, setSelectedArticleId] = useState(1)
   const virtuosoGridRef = useRef<VirtuosoGridHandle>(null)
 
-  const getSkeletons = () => {
-    return new Array(3)
-      .fill(0).map((_, index) => (<ArticleListItemSkeleton key={index} view={ArticleView.LIST} className={cls.card} />))
+  function getSkeletons (view?: ArticleView) {
+    if (view !== undefined) {
+      return new Array(view === ArticleView.BLOCK ? 9 : 3)
+        .fill(0).map((item, index) => (<ArticleListItemSkeleton key={index} view={view} />))
+    } else {
+      return new Array(3)
+        .fill(0).map((_, index) => (<ArticleListItemSkeleton key={index} view={ArticleView.LIST} className={cls.card} />))
+    }
   }
 
   useEffect(() => {
@@ -55,7 +62,7 @@ const ArticleList = (props: ArticleListProps) => {
     return () => { clearTimeout(timeoutId) }
   }, [selectedArticleId, view])
 
-  const renderArticle = (index: number, article: Article) => {
+  const renderVirtualArticle = (index: number, article: Article) => {
     return (
         <ArticleListItem
             key={article.id}
@@ -67,6 +74,11 @@ const ArticleList = (props: ArticleListProps) => {
         />
     )
   }
+
+  const renderArticle = (article: Article) => (
+      <ArticleListItem key={article.id} article={article} view={view} target={target} />
+  )
+
   const Footer = memo(() => {
     if (isLoading) {
       return (
@@ -92,42 +104,54 @@ const ArticleList = (props: ArticleListProps) => {
       </div>
   )
 
+  const VirtualList = <Virtuoso
+      data={articles}
+      itemContent={renderVirtualArticle}
+      endReached={onLoadNextPart}
+      initialTopMostItemIndex={selectedArticleId}
+      components={{
+        Footer
+      }}
+      style={{
+        width: '100%'
+      }}
+    />
+
+  const VirtualGrid = <VirtuosoGrid
+      data={articles}
+      itemContent={renderVirtualArticle}
+      endReached={onLoadNextPart}
+      totalCount={articles.length}
+      components={{
+        ScrollSeekPlaceholder: ItemContainerComp
+      }}
+      listClassName={cls.itemsWrapper}
+      scrollSeekConfiguration={{
+        enter: velocity => Math.abs(velocity) > 700,
+        exit: velocity => Math.abs(velocity) < 30
+      }}
+      style={{
+        width: '100%'
+      }}
+    />
+
+  if (virtualized) {
+    return (
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            {view === 'LIST'
+              ? VirtualList
+              : VirtualGrid}
+        </div>
+    )
+  }
+
   return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-          {view === 'LIST'
-            ? (
-                <Virtuoso
-                    data={articles}
-                    itemContent={renderArticle}
-                    endReached={onLoadNextPart}
-                    initialTopMostItemIndex={selectedArticleId}
-                    components={{
-                      Footer
-                    }}
-                    style={{
-                      width: '100%'
-                    }}
-                />
-              )
-            : (
-                <VirtuosoGrid
-                    data={articles}
-                    itemContent={renderArticle}
-                    endReached={onLoadNextPart}
-                    totalCount={articles.length}
-                    components={{
-                      ScrollSeekPlaceholder: ItemContainerComp
-                    }}
-                    listClassName={cls.itemsWrapper}
-                    scrollSeekConfiguration={{
-                      enter: velocity => Math.abs(velocity) > 700,
-                      exit: velocity => Math.abs(velocity) < 30
-                    }}
-                    style={{
-                      width: '100%'
-                    }}
-                />
-              )}
+          {articles.length > 0
+            ? articles.map(renderArticle)
+            : null}
+
+          {isLoading && getSkeletons(view)}
       </div>
   )
 }

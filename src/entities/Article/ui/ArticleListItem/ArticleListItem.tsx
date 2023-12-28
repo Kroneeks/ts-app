@@ -19,7 +19,7 @@ interface ArticleListItemProps {
   article: Article
   view: ArticleView
   target?: HTMLAttributeAnchorTarget
-  index: number
+  index?: number
 }
 
 const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -35,7 +35,9 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
   )
 
   const handleButtonClick = () => {
-    sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCASTORAGE_IDX, JSON.stringify(index))
+    if (index) {
+      sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCASTORAGE_IDX, JSON.stringify(index))
+    }
   }
 
   if (view === ArticleView.LIST) {

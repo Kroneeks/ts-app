@@ -10,10 +10,12 @@ import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 interface ArticleInfiniteListProps {
   className?: string
+  onLoadNextPart: () => void
+  virtualized?: boolean
 }
 
 const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
-  const { className = '' } = props
+  const { className = '', onLoadNextPart, virtualized = false } = props
   const { t } = useTranslation('article')
   const articles = useSelector(getArticles.selectAll)
   const isLoading = useSelector(getArticlesPageIsLoading)
@@ -21,10 +23,6 @@ const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   const view = useSelector(getArticlesPageView)
   const inited = useSelector(getArticlesPageInited)
   const dispatch = useAppDispatch()
-
-  const onLoadNextPart = useCallback(() => {
-    void dispatch(fetchNextArticlesPage())
-  }, [dispatch])
 
   if (error) {
     return (
@@ -39,6 +37,7 @@ const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
           articles={articles}
           className={className}
           onLoadNextPart={onLoadNextPart}
+          virtualized={virtualized}
         />
   )
 })

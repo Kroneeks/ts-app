@@ -22,7 +22,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     void dispatch(fetchNextArticlesPage())
   }, [dispatch])
 
-  if (isLoading || error) {
+  if (isLoading || error || !articles) {
     return null
   }
 
