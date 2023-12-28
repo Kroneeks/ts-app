@@ -11,7 +11,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void
   readonly?: boolean
   placeholder?: string
-  'data-testid': string
+  'data-testid'?: string
 }
 
 const Input: FC<InputProps> = memo((props: InputProps) => {
