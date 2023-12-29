@@ -10,6 +10,8 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { VStack } from 'shared/ui/Stack'
+import { classNames } from 'shared/lib/classNames/classNames'
 
 interface ArticleDetailsCommentsProps {
   className?: string
@@ -32,11 +34,11 @@ const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
   }, [dispatch])
 
   return (
-      <>
+      <VStack gap='16' max className={classNames('', {}, [className])}>
           <Text size={TextSize.L} title={t('Комментарии')} />
           <AddCommentForm onSendComment={onSendComment} />
           <CommentList isLoading={commentsIsLoading} comments={comments} />
-      </>
+      </VStack>
   )
 })
 

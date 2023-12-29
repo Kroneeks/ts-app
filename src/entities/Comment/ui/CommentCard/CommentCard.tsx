@@ -21,20 +21,20 @@ const CommentCard = memo((props: CommentCardProps) => {
 
   if (isLoading) {
     return (
-        <div className={classNames(cls.CommentCard, {}, [className])}>
+        <VStack gap='8' max className={classNames(cls.CommentCard, {}, [className])}>
             <div className={cls.header}>
                 <Skeleton width={40} height={40} borderR='50%' />
                 <Skeleton height={16} width={100} />
             </div>
             <Skeleton className={cls.body} width={'100%'} height={50} />
-        </div>
+        </VStack>
     )
   }
 
   if (!comment) { return null }
 
   return (
-      <VStack max gap='8' className={classNames(cls.CommentCard, {}, [className])}>
+      <VStack gap='8' max className={classNames(cls.CommentCard, {}, [className])}>
           <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
               <Avatar size={AvatarSize.SMALL} src={comment.user.avatar ?? 'https://cdn-icons-png.flaticon.com/512/456/456212.png'} />
               <Text title={comment.user.username} />
