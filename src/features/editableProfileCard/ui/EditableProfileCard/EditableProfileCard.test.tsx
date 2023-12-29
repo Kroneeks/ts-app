@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import { EditableProfileCard } from './EditableProfileCard'
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
+import { componentRender, type componentRenderOptions } from 'shared/lib/tests/componentRender/componentRender'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { type Profile } from 'entities/Profile'
@@ -37,13 +37,13 @@ const options = {
 
 describe('features/EditableProfileCard', () => {
   it('Mode ReadOnly should change', async () => {
-    componentRender(<EditableProfileCard id="1" className="custom-sidebar" />, options)
+    componentRender(<EditableProfileCard id="1" className="custom-sidebar" />, options as componentRenderOptions)
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
     expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument()
   })
 
   it('Cancel should restore values', async () => {
-    componentRender(<EditableProfileCard id="1" className="custom-sidebar" />, options)
+    componentRender(<EditableProfileCard id="1" className="custom-sidebar" />, options as componentRenderOptions)
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
 
     await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
@@ -60,7 +60,7 @@ describe('features/EditableProfileCard', () => {
   })
 
   it('Should show Error', async () => {
-    componentRender(<EditableProfileCard id="1" className="custom-sidebar" />, options)
+    componentRender(<EditableProfileCard id="1" className="custom-sidebar" />, options as componentRenderOptions)
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
     await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'))
@@ -69,7 +69,7 @@ describe('features/EditableProfileCard', () => {
 
   it('Without errors should be send PUT request', async () => {
     const mockPutReq = jest.spyOn($api, 'put')
-    componentRender(<EditableProfileCard id="1" className="custom-sidebar" />, options)
+    componentRender(<EditableProfileCard id="1" className="custom-sidebar" />, options as componentRenderOptions)
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
     await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user')
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'))

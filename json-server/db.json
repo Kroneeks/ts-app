@@ -26,14 +26,21 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
       "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
     }
   ],
