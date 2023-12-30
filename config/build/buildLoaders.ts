@@ -11,7 +11,8 @@ export function buildLoaders (options: buildOptions): RuleSetRule[] {
     exclude: /node_modules/
   }
 
-  const babelLoader = buildBabelLoader(options)
+  const codeBabelLoader = buildBabelLoader({...options, isTsx: false})
+  const tsxCodeBabelLoader = buildBabelLoader({...options, isTsx: true})
 
   const svgLoader = {
     test: /\.svg$/i,
@@ -32,8 +33,9 @@ export function buildLoaders (options: buildOptions): RuleSetRule[] {
   return [
     fileLoader,
     svgLoader,
-    babelLoader,
-    typescriptLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
+    //typescriptLoader,
     cssLoader
   ]
 }
