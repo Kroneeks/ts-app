@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { ArticleListItem } from './ArticleListItem'
-import { ArticleView, type Article } from 'entities/Article/model/types/article'
+import { type Article } from 'entities/Article/model/types/article'
+import { ArticleView } from 'entities/Article/model/consts/consts'
 import { BrowserRouter } from 'react-router-dom'
 import { StoreProvider } from 'app/providers/StoreProvider'
 

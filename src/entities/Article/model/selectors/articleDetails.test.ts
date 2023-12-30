@@ -5,7 +5,8 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading
 } from './articleDetails'
-import { type Article, ArticleType } from '../types/article'
+import { type Article } from '../types/article'
+import { ArticleType } from '../consts/consts'
 
 describe('articleDetails', () => {
   it('Should return data object', () => {

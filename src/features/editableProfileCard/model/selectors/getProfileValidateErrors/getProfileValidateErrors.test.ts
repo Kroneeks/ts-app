@@ -1,7 +1,7 @@
 import { type StateSchema } from 'app/providers/StoreProvider'
 import { getProfileValidateErrors } from './getProfileValidateErrors'
 import { type DeepPartial } from '@reduxjs/toolkit'
-import { ValidateProfileError } from '../../types/editableProfileCardSchema'
+import { ValidateProfileError } from '../../consts/consts'
 
 describe('getProfileValidateErrors', () => {
   it('Should return empty array', () => {

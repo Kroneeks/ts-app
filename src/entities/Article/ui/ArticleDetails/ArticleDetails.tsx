@@ -13,7 +13,8 @@ import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar'
 import EyeIcon from 'shared/assets/icons/eye.svg'
 import CalendarIcon from 'shared/assets/icons/calendar.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
-import { ArticleBlockType, type ArticleBlock } from '../../model/types/article'
+import { type ArticleBlock } from '../../model/types/article'
+import { ArticleBlockType } from 'entities/Article/model/consts/consts'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
@@ -22,7 +23,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 
 interface ArticleDetailsProps {
   className?: string
-  id: string
+  id?: string
 }
 
 const reducers: ReducersList = {
