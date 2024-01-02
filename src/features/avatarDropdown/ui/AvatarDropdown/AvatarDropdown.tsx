@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './AvatarDropdown.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
@@ -34,7 +33,7 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
   return (
       <Dropdown
           direction='bottom left'
-          className={classNames(cls.AvatarDropdown, {}, [className])}
+          className={classNames('', {}, [className])}
           items={[
             ...(isAdminPanelAvailable
               ? [{

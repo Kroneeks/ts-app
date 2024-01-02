@@ -1,6 +1,7 @@
 import { type Mods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { useEffect, type ReactNode, useCallback, useState } from 'react'
+import { Overlay } from '../Overlay/Overlay'
 
 interface ModalProps {
   className?: string
@@ -24,10 +25,6 @@ const Modal = (props: ModalProps) => {
       onClose()
     }
   }, [onClose])
-
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-  }
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -57,10 +54,9 @@ const Modal = (props: ModalProps) => {
 
   return (
       <div className={classNames(cls.Modal, mods, [className])}>
-          <div className={cls.overlay} onClick={closeHandler}>
-              <div className={cls.content} onClick={onContentClick}>
-                  {children}
-              </div>
+          <Overlay onClick={closeHandler} />
+          <div className={cls.content}>
+              {children}
           </div>
       </div>
   )
