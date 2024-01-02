@@ -51,7 +51,7 @@ const Flex = memo((props: FlexProps) => {
     align = 'center',
     direction = 'row',
     gap = '8',
-    max = true
+    max = false
   } = props
 
   const classes = [
