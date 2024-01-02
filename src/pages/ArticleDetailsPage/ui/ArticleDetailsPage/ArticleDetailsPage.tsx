@@ -1,13 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useTranslation } from 'react-i18next'
-import { ArticleDetails } from 'entities/Article'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { ArticleDetails } from '@/entities/Article'
 import { useParams } from 'react-router-dom'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { Page } from 'widgets/Page/Page'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { Page } from '@/widgets/Page/Page'
 import { articleDetailsPageReducer } from '../../model/slices'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
-import { VStack } from 'shared/ui/Stack'
-import { ArticleRecommendationsList } from 'features/articleRecommendationsList'
+import { VStack } from '@/shared/ui/Stack'
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
 
 interface ArticleDetailsPageProps {
@@ -19,7 +18,6 @@ const reducers: ReducersList = {
 }
 
 const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
-  const { t } = useTranslation('article-details')
   const { id } = useParams<{ id: string }>()
 
   return (

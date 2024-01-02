@@ -26,7 +26,7 @@ type Story = StoryObj<typeof meta>
 
 export const Clear: Story = {
   args: {
-    trigger: <Button>Open</Button>,
+    trigger: <Button>+</Button>,
     items: [
       {
         content: 'first'

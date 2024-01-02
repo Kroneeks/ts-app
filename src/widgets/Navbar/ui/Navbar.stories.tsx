@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Navbar } from './Navbar'
 import { Provider } from 'react-redux'
-import { type StateSchema, createReduxStore } from 'app/providers/StoreProvider'
+import { type StateSchema, createReduxStore } from '@/app/providers/StoreProvider'
 
 const store = createReduxStore({} as StateSchema)
 

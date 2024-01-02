@@ -27,9 +27,9 @@ export const Column: Story = {
   args: {
     children: (
         <>
-            <div>Текст 1</div>
-            <div>Текст 2</div>
-            <div>Текст 3</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
         </>
     ),
     align: 'center',
@@ -43,9 +43,9 @@ export const Row: Story = {
   args: {
     children: (
         <>
-            <div>Текст 1</div>
-            <div>Текст 2</div>
-            <div>Текст 3</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
         </>
     ),
     align: 'center',

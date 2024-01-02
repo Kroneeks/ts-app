@@ -1,15 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleList.module.scss'
 import { useTranslation } from 'react-i18next'
 import { type Article } from '../../model/types/article'
-import { ArticleView } from 'entities/Article/model/consts/consts'
+import { ArticleView } from '@/entities/Article/model/consts/consts'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
-import { Text } from 'shared/ui/Text/Text'
+import { Text } from '@/shared/ui/Text/Text'
 import { type HTMLAttributeAnchorTarget, memo, useState, useRef, useEffect, type FC } from 'react'
 import { Virtuoso, VirtuosoGrid, type VirtuosoGridHandle } from 'react-virtuoso'
-import { ArticlePageFilters } from 'pages/ArticlePage/ui/ArticlePageFilters/ArticlePageFilters'
-import { ARTICLE_LIST_ITEM_LOCASTORAGE_IDX } from 'shared/const/localstorage'
+import { ARTICLE_LIST_ITEM_LOCASTORAGE_IDX } from '@/shared/const/localstorage'
 
 interface ArticleListProps {
   className?: string

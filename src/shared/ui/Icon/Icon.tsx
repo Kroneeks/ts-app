@@ -1,4 +1,4 @@
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Icon.module.scss'
 import { memo } from 'react'
 

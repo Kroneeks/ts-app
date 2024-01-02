@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleSortSelector.module.scss'
 import { useTranslation } from 'react-i18next'
-import { memo, useCallback, useMemo } from 'react'
-import { Select, type SelectOption } from 'shared/ui/Select/Select'
+import { memo, useMemo } from 'react'
+import { Select, type SelectOption } from '@/shared/ui/Select/Select'
 import { ArticleSortField } from '../../model/consts/consts'
-import { type SortOrder } from 'shared/types'
+import { type SortOrder } from '@/shared/types'
 
 interface ArticleSortSelectorProps {
   className?: string
@@ -17,14 +17,6 @@ interface ArticleSortSelectorProps {
 const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   const { className = '', sort, order, onChangeOrder, onChangeSort } = props
   const { t } = useTranslation()
-
-  const changeSortHandler = useCallback((newSort: string) => {
-    onChangeSort(newSort as ArticleSortField)
-  }, [onChangeSort])
-
-  const changeOrderHandler = useCallback((newOrder: string) => {
-    onChangeOrder(newOrder as SortOrder)
-  }, [onChangeOrder])
 
   const orderOptions = useMemo<Array<SelectOption<SortOrder>>>(() => [
     {

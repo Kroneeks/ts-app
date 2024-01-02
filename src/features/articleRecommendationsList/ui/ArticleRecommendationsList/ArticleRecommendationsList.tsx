@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
-import { ArticleList } from 'entities/Article'
-import { Text, TextSize } from 'shared/ui/Text/Text'
-import { VStack } from 'shared/ui/Stack'
+import { ArticleList } from '@/entities/Article'
+import { Text, TextSize } from '@/shared/ui/Text/Text'
+import { VStack } from '@/shared/ui/Stack'
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { fetchNextArticlesPage } from 'pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { fetchNextArticlesPage } from '@/pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 
 interface ArticleRecommendationsListProps {
   className?: string
@@ -22,7 +22,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     void dispatch(fetchNextArticlesPage())
   }, [dispatch])
 
-  if (isLoading || error || !articles) {
+  if (isLoading ?? error ?? !articles) {
     return null
   }
 

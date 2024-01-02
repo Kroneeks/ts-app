@@ -55,7 +55,7 @@
             4
         ],
         "import/no-unresolved": "off",
-        "no-unused-vars": "warn",
+        "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "warn",
         "react/require-default-props": "off",
         "react/jsx-props-no-spreading": "off",
@@ -63,7 +63,7 @@
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
         "i18next/no-literal-string": [
-            "error",
+            "warn",
             {
                 "markupOnly": true,
                 "ignoreAttribute": [
@@ -89,7 +89,8 @@
     "ignorePatterns": [
         "webpack.config.ts",
         "**/config/**/*",
-        "**/scripts/**/*.js"
+        "**/scripts/**/*.js",
+        "**/scripts/**/*.ts"
     ],
     "overrides": [
         {

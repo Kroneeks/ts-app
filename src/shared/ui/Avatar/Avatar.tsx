@@ -1,6 +1,5 @@
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Avatar.module.scss'
-import { useTranslation } from 'react-i18next'
 
 export enum AvatarSize {
   SMALL = 'small',
@@ -17,7 +16,6 @@ interface AvatarProps {
 
 const Avatar = (props: AvatarProps) => {
   const { className = '', src, alt = 'Sign a picture', size = AvatarSize.NORMAL } = props
-  const { t } = useTranslation()
 
   const mods: Mods = {
     [cls[size]]: true

@@ -1,15 +1,14 @@
-import { useTranslation } from 'react-i18next'
 import { memo, useCallback, useState } from 'react'
-import { Popover } from 'shared/ui/Popups'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import NotificationIcon from 'shared/assets/icons/notifications.svg'
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon'
-import { NotificationList } from 'entities/Notification'
+import { Popover } from '@/shared/ui/Popups'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
+import NotificationIcon from '@/shared/assets/icons/notifications.svg'
+import { Icon, IconTheme } from '@/shared/ui/Icon/Icon'
+import { NotificationList } from '@/entities/Notification'
 import cls from './NotificationButton.module.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Drawer } from 'shared/ui/Drawer/Drawer'
-import useDeviceDetection from 'shared/lib/hooks/useDeviceDetection/useDeviceDetection'
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import useDeviceDetection from '@/shared/lib/hooks/useDeviceDetection/useDeviceDetection'
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider'
 
 interface NotificationButtonProps {
   className?: string
@@ -17,7 +16,6 @@ interface NotificationButtonProps {
 
 const NotificationButton = memo((props: NotificationButtonProps) => {
   const { className } = props
-  const { t } = useTranslation()
   const device = useDeviceDetection()
 
   const [isOpen, setIsOpen] = useState(false)

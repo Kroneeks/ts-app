@@ -1,12 +1,11 @@
 import cls from './Popover.module.scss'
-import { useTranslation } from 'react-i18next'
 import { type ReactNode } from 'react'
-import { type DropDownDirection } from 'shared/types/ui'
+import { type DropDownDirection } from '@/shared/types/ui'
 import { memo } from 'react'
 import { Popover as HPopover } from '@headlessui/react'
 import { mapDirectionClass } from '../../styles/consts'
 import popupCls from '../../styles/popup.module.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 interface PopoverProps {
   className?: string
@@ -17,7 +16,6 @@ interface PopoverProps {
 
 const Popover = memo((props: PopoverProps) => {
   const { className = '', trigger, direction = 'bottom right', children } = props
-  const { t } = useTranslation()
 
   const menuClasses = [mapDirectionClass[direction]]
 

@@ -1,7 +1,6 @@
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Flex.module.scss'
-import { useTranslation } from 'react-i18next'
-import { type ReactNode, memo, type DetailedHTMLProps, type HTMLAttributes } from 'react'
+import { type ReactNode, memo, type HTMLAttributes } from 'react'
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'
 export type FlexAlign = 'start' | 'center' | 'end'

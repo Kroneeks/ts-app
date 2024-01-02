@@ -1,4 +1,4 @@
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 import { memo, type InputHTMLAttributes, type FC } from 'react'
 
@@ -43,6 +43,7 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
               onChange={onChangeHandler}
               placeholder={placeholder}
               data-testid={dataTestId}
+              {...otherProps}
             />
       </div>
   )

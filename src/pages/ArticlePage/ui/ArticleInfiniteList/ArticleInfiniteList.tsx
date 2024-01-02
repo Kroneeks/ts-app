@@ -1,12 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { getArticles } from '../../model/slices/articlesPageSlice'
-import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelector'
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { ArticleList } from 'entities/Article'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelector'
+import { ArticleList } from '@/entities/Article'
+import { Text, TextTheme } from '@/shared/ui/Text/Text'
 
 interface ArticleInfiniteListProps {
   className?: string
@@ -21,8 +19,7 @@ const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading)
   const error = useSelector(getArticlesPageError)
   const view = useSelector(getArticlesPageView)
-  const inited = useSelector(getArticlesPageInited)
-  const dispatch = useAppDispatch()
+  // const inited = useSelector(getArticlesPageInited)
 
   if (error) {
     return (

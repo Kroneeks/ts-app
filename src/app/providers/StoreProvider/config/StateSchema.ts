@@ -1,18 +1,18 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { CounterSchema } from "entities/Counter";
-import { UserSchema } from "entities/User";
-import { LoginSchema } from "features/AuthByUsername";
-import { ProfileSchema } from "features/editableProfileCard";
+import { CounterSchema } from "@/entities/Counter";
+import { UserSchema } from "@/entities/User";
+import { LoginSchema } from "@/features/AuthByUsername";
+import { ProfileSchema } from "@/features/editableProfileCard";
 import { NavigateOptions, To } from "react-router-dom";
 import { AppDispatch } from "./store";
 import type {} from 'redux-thunk/extend-redux'
-import { ArticleDetailsSchema } from "entities/Article";
-import { ArticleDetailsCommentsSchema, ArticleDetailsPageSchema, ArticleDetailsRecomendationSchema } from "pages/ArticleDetailsPage";
-import { AddCommentFormSchema } from "features/AddCommentForm";
-import { ArticlesPageSchema } from "pages/ArticlePage";
-import { UISchema } from "features/UI";
-import { rtkApi } from "shared/api/rtkApi";
+import { ArticleDetailsSchema } from "@/entities/Article";
+import { ArticleDetailsCommentsSchema, ArticleDetailsPageSchema, ArticleDetailsRecomendationSchema } from "@/pages/ArticleDetailsPage";
+import { AddCommentFormSchema } from "@/features/AddCommentForm";
+import { ArticlesPageSchema } from "@/pages/ArticlePage";
+import { UISchema } from "@/features/UI";
+import { rtkApi } from "@/shared/api/rtkApi";
 
 
 export interface StateSchema {

@@ -1,11 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './NotificationItem.module.scss'
-import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import { type Notification } from '../../model/types/notification'
-import { Card, CardTheme } from 'shared/ui/Card/Card'
-import { Text } from 'shared/ui/Text/Text'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { Card, CardTheme } from '@/shared/ui/Card/Card'
+import { Text } from '@/shared/ui/Text/Text'
+import { AppLink } from '@/shared/ui/AppLink/AppLink'
 
 interface NotificationItemProps {
   className?: string
@@ -14,7 +13,6 @@ interface NotificationItemProps {
 
 const NotificationItem = memo((props: NotificationItemProps) => {
   const { className = '', item } = props
-  const { t } = useTranslation()
 
   const content = (
       <Card
