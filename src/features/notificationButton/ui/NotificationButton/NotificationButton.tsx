@@ -9,6 +9,7 @@ import cls from './NotificationButton.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Drawer } from 'shared/ui/Drawer/Drawer'
 import useDeviceDetection from 'shared/lib/hooks/useDeviceDetection/useDeviceDetection'
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
 
 interface NotificationButtonProps {
   className?: string
@@ -51,9 +52,11 @@ const NotificationButton = memo((props: NotificationButtonProps) => {
   return (
       <div>
           {trigger}
-          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-              <NotificationList />
-          </Drawer>
+          <AnimationProvider>
+              <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                  <NotificationList />
+              </Drawer>
+          </AnimationProvider>
       </div>
   )
 })
