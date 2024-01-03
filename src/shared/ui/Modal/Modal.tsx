@@ -3,6 +3,7 @@ import cls from './Modal.module.scss'
 import { type ReactNode } from 'react'
 import { Overlay } from '../Overlay/Overlay'
 import { useModal } from '@/shared/lib/hooks/useModal/useModal'
+import { useTheme } from '@/app/providers/ThemeProvider'
 
 interface ModalProps {
   className?: string
@@ -32,12 +33,14 @@ const Modal = (props: ModalProps) => {
     [cls.isClosing]: isClosing
   }
 
+  const { theme, toggleTheme } = useTheme()
+
   if (lazy && !isMounted) {
     return null
   }
 
   return (
-      <div className={classNames(cls.Modal, mods, [className])}>
+      <div className={classNames(cls.Modal, mods, [className, theme, 'modal'])}>
           <Overlay onClick={close} />
           <div className={cls.content}>
               {children}

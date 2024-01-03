@@ -90,7 +90,8 @@
         "webpack.config.ts",
         "**/config/**/*",
         "**/scripts/**/*.js",
-        "**/scripts/**/*.ts"
+        "**/scripts/**/*.ts",
+        "vite.config.ts"
     ],
     "overrides": [
         {
