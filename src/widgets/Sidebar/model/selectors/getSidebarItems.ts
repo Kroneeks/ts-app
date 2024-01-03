@@ -3,10 +3,10 @@ import { getUserAuthData } from '@/entities/User'
 import { type SidebarItemType } from '../types/sidebar'
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 
-import MainIcon from '@/shared/assets/icons/main.svg'
-import AboutIcon from '@/shared/assets/icons/about.svg'
-import ProfileIcon from '@/shared/assets/icons/profile.svg'
-import ArticlesIcon from '@/shared/assets/icons/articles.svg'
+import MainIcon from '@/shared/assets/icons/main.svg?react'
+import AboutIcon from '@/shared/assets/icons/about.svg?react'
+import ProfileIcon from '@/shared/assets/icons/profile.svg?react'
+import ArticlesIcon from '@/shared/assets/icons/articles.svg?react'
 
 export const getSidebarItems = createSelector(
   getUserAuthData,

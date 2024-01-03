@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from 'react'
 import { Popover } from '@/shared/ui/Popups'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
-import NotificationIcon from '@/shared/assets/icons/notifications.svg'
+import NotificationIcon from '@/shared/assets/icons/notifications.svg?react'
 import { Icon, IconTheme } from '@/shared/ui/Icon/Icon'
 import { NotificationList } from '@/entities/Notification'
 import cls from './NotificationButton.module.scss'

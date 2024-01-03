@@ -16,7 +16,8 @@
       "@/*": ["./src/*"]
     },
     "strictNullChecks": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "types": ["vite-plugin-svgr/client"]
   },
   "ts-node": {
     "compilerOptions": {
