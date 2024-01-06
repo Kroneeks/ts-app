@@ -50,13 +50,13 @@ export const ListBox = (props: ListBoxProps) => {
               <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
                   {items?.map((item) => (
                       <HListBox.Option
-                          key={item.id}
+                          key={`${item.id}_box`}
                           value={item.value}
                           disabled={item.disabled}
                           as={Fragment}
                     >
                           {({ active, selected }) => (
-                              <li className={classNames(
+                              <li key={`${item.id}_item`} className={classNames(
                                 cls.item, {
                                   [popupCls.active]: active,
                                   [popupCls.disabled]: item.disabled
