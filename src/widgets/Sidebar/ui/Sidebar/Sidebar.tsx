@@ -2,15 +2,14 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Sidebar.module.scss'
 import { memo, useMemo, useState } from 'react'
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button'
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher'
-import { LangSwitcher } from '@/widgets/LangSwitcher'
-
 import ToggleIcon from '@/shared/assets/icons/togglesidebar.svg?react'
 import { SidebarItem } from '../SidebarItem/ui/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import { VStack } from '@/shared/ui/Stack/VStack/VStack'
 import { Icon, IconSize, IconTheme } from '@/shared/ui/Icon/Icon'
+import { ThemeSwitcher } from '@/features/ThemeSwitcher'
+import { LangSwitcher } from '@/features/LangSwitcher'
 
 interface SidebarProps {
   className?: string

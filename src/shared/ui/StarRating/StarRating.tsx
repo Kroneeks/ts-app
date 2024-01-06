@@ -1,10 +1,8 @@
-import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './StarRating.module.scss'
-import { useTranslation } from 'react-i18next'
 import { memo, useState } from 'react'
 import { Icon, type IconSize } from '../Icon/Icon'
-import StarFree from '@/shared/assets/icons/starfree.svg?react'
-import StarFull from '@/shared/assets/icons/starfull.svg?react'
+import StarIcon from '@/shared/assets/icons/star.svg?react'
 
 interface StarRatingProps {
   className?: string
@@ -17,9 +15,7 @@ const stars = [1, 2, 3, 4, 5]
 
 const StarRating = memo((props: StarRatingProps) => {
   const { className = '', size, selectedStars = 0, onSelect } = props
-  const { t } = useTranslation()
 
-  const [isHovered, setIsHovered] = useState(false)
   const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars)
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars))
 
@@ -47,7 +43,7 @@ const StarRating = memo((props: StarRatingProps) => {
       <div className={classNames(cls.StarRating, {}, [className])}>
           {stars.map(starNumber => (
               <Icon
-                  Svg={StarFree}
+                  Svg={StarIcon}
                   key={starNumber}
                   className={classNames(
                     cls.starRating,
