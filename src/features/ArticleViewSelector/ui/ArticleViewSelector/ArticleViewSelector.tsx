@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleViewSelector.module.scss'
+import { ArticleView } from '@/entities/Article'
 import { memo } from 'react'
-import { ArticleView } from '@/entities/Article/model/consts/consts'
 import ListIcon from '@/shared/assets/icons/list.svg?react'
 import BlockIcon from '@/shared/assets/icons/tiled.svg?react'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
