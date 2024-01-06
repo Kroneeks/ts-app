@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { useSearchParams } from 'react-router-dom'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { fetchNextArticlesPage } from '@/pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 

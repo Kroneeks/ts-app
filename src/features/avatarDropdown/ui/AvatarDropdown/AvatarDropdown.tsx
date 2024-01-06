@@ -5,7 +5,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useSelector } from 'react-redux'
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User'
 import { Dropdown } from '@/shared/ui/Popups'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/shared/const/router'
 import { Avatar, AvatarSize } from '@/shared/ui/Avatar/Avatar'
 
 interface AvatarDropdownProps {
