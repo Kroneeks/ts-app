@@ -17,7 +17,7 @@
     },
     "strictNullChecks": true,
     "isolatedModules": true,
-    "types": ["vite-plugin-svgr/client"]
+    "types": ["vite-plugin-svgr/client", "node"]
   },
   "ts-node": {
     "compilerOptions": {
@@ -27,6 +27,7 @@
   "include": [
     "./src/**/*.ts",
     "./src/**/*.tsx",
+    "./scripts/refactoring/**/*.ts",
     "./config/jest/setupTests.ts"
   ]
 }

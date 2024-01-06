@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { getArticles } from '../../model/slices/articlesPageSlice'
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelector'
 import { ArticleList } from '@/entities/Article'
-import { Text, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextTheme } from '@/shared/ui/Text'
 
 interface ArticleInfiniteListProps {
   className?: string

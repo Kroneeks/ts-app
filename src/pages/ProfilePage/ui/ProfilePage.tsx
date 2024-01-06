@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Page } from '@/widgets/Page'
 import { VStack } from '@/shared/ui/Stack'
 import { EditableProfileCard } from '@/features/editableProfileCard'
-import { Text, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextTheme } from '@/shared/ui/Text'
 import { classNames } from '@/shared/lib/classNames/classNames'
 
 interface ProfilePageProps {
