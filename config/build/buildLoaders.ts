@@ -15,7 +15,7 @@ export function buildLoaders (options: buildOptions): RuleSetRule[] {
   const tsxCodeBabelLoader = buildBabelLoader({...options, isTsx: true})
 
   const svgLoader = {
-    test: /\.svg$/i
+    test: /\.svg$/i,
     use: [{ loader: '@svgr/webpack' }]
   }
 
