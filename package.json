@@ -18,7 +18,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui:live": "concurrently -s first -k \"npm run storybook\" \"npm run test:ui\"",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
@@ -70,6 +70,7 @@
     "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^8.2.2",
     "copy-webpack-plugin": "^11.0.0",
+    "creevey": "^0.8.1",
     "css-loader": "^6.8.1",
     "eslint": "^8.47.0",
     "eslint-config-standard-with-typescript": "^38.0.0",
@@ -139,7 +140,7 @@
       "@storybook/react": "$@storybook/react"
     }
   },
-  "loki": {
+   "loki": {
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",
