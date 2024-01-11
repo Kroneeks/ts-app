@@ -25,7 +25,7 @@ const Counter = () => {
           <h1 data-testid="value-title">{counterValue}</h1>
           <Button onClick={handleInc} data-testid="increment-btn">+</Button>
           <Button onClick={handleDec} data-testid="decrement-btn">-</Button>
-          <Button onClick={handleAddFive} data-testid="decrement-btn">+5</Button>
+          <Button onClick={handleAddFive} data-testid="increment-count-btn">+5</Button>
       </div>
   )
 }
