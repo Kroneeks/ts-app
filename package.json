@@ -22,7 +22,7 @@
     "test:ui:live": "concurrently -s first -k \"npm run storybook\" \"npm run test:ui\"",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
-    "test:ui:html": "npx reg-cli --from .\\.loki\\report.json --report .\\.loki\\report.html",
+    "test:ui:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "server:start": "json-server --watch .\\json-server\\db.json --port 5000",
