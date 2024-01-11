@@ -1,6 +1,6 @@
 import { getLoginUsername } from './getLoginUsername'
 import { type DeepPartial } from '@reduxjs/toolkit'
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { type StateSchema } from '@/app/providers/StoreProvider'
 
 describe('getLoginError.test', () => {
   it('Should return error', () => {

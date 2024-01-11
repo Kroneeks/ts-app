@@ -2,6 +2,10 @@
     fill: var(--primary-color)
 }
 
+.inverted {
+    fill: var(--inverted-primary-color)
+}
+
 .size_s {
     width: var(--icon-s-size);
     height: var(--icon-s-size);

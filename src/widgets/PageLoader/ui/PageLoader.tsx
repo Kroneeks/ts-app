@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './PageLoader.module.scss'
-import { Loader } from 'shared/ui/Loader/Loader'
+import { Loader } from '@/shared/ui/Loader'
 
 interface PageLoaderProps {
   className?: string
@@ -8,7 +8,7 @@ interface PageLoaderProps {
 
 const PageLoader = ({ className = '' }: PageLoaderProps): React.ReactElement => {
   return (
-      <div className={classNames(cls.PageLoader, {}, [className])}>
+      <div data-testid='PageLoader' className={classNames(cls.PageLoader, {}, [className])}>
           <Loader />
       </div>
   )

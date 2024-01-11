@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { ArticleList } from './ArticleList'
-import { ArticleView, type Article } from 'entities/Article/model/types/article'
+import { type Article } from '@/entities/Article/model/types/article'
+import { ArticleView } from '@/entities/Article/model/consts/consts'
 import { BrowserRouter } from 'react-router-dom'
-import { StoreProvider } from 'app/providers/StoreProvider'
+import { StoreProvider } from '@/app/providers/StoreProvider'
 
 const article = {
   id: '1',

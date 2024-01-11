@@ -1,14 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Sidebar.module.scss'
 import { memo, useMemo, useState } from 'react'
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
-import { LangSwitcher } from 'widgets/LangSwitcher'
-
-import ToggleIcon from 'shared/assets/icons/toggle-sidebar.svg'
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button'
+import ToggleIcon from '@/shared/assets/icons/togglesidebar.svg?react'
 import { SidebarItem } from '../SidebarItem/ui/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import { VStack } from '@/shared/ui/Stack'
+import { Icon } from '@/shared/ui/Icon'
+import { ThemeSwitcher } from '@/features/ThemeSwitcher'
+import { LangSwitcher } from '@/features/LangSwitcher'
 
 interface SidebarProps {
   className?: string
@@ -33,18 +34,33 @@ const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
   }, [collapsed, sidebarItemsList])
 
   return (
-      <menu data-testid="sidebar-test" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-          <Button data-testid="sidebar-button" className={cls.collapseBtn} theme={ButtonTheme.CLEAR} size={ButtonSize.XL} onClick={onToggle} square>
-              <ToggleIcon className={classNames(cls.ToggleIcon)} fill="white" />
+      <aside
+          data-testid="sidebar-test"
+          className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+        >
+          <Button
+              data-testid="sidebar-button"
+              className={cls.collapseBtn}
+              theme={ButtonTheme.CLEAR}
+              size={ButtonSize.XL}
+              onClick={onToggle}
+              square
+            >
+              <Icon
+                  Svg={ToggleIcon}
+                  inverted
+                  width='30px'
+                  height='30px'
+                />
           </Button>
-          <div className={cls.items}>
+          <VStack role="navigation" className={cls.items}>
               {itemsList}
-          </div>
+          </VStack>
           <div className={classNames(cls.switchers)}>
               <ThemeSwitcher />
               <LangSwitcher className={cls.lang} short={collapsed} />
           </div>
-      </menu>
+      </aside>
   )
 })
 

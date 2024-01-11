@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { Sidebar } from './Sidebar'
-import { StoreProvider } from 'app/providers/StoreProvider'
+import { StoreProvider } from '@/app/providers/StoreProvider'
 
 const meta = {
   title: 'widgets/Sidebar',

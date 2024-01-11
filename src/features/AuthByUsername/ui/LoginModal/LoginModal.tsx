@@ -1,9 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Modal } from 'shared/ui/Modal/Modal'
-import { useTheme } from 'app/providers/ThemeProvider'
+import { Modal } from '@/shared/ui/Modal'
 import { Suspense } from 'react'
 import { LoginFormAsync } from '../LoginForm/LoginForm.async'
-import { Loader } from 'shared/ui/Loader/Loader'
+import { Loader } from '@/shared/ui/Loader'
 
 interface LoginModalProps {
   className?: string
@@ -12,10 +10,8 @@ interface LoginModalProps {
 }
 
 const LoginModal = ({ className = '', isOpen, onClose }: LoginModalProps) => {
-  const { theme, toggleTheme } = useTheme()
-
   return (
-      <Modal className={classNames('modal', {}, [className, theme])} isOpen={isOpen} onClose={onClose}>
+      <Modal className={className} isOpen={isOpen} onClose={onClose}>
           <Suspense fallback={<Loader />}>
               <LoginFormAsync onSuccess={onClose} />
           </Suspense>

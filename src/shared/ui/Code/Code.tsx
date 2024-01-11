@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Code.module.scss'
-import { useCallback, type ReactNode } from 'react'
+import { useCallback } from 'react'
 import { Button, ButtonTheme } from '../Button/Button'
 import { Icon } from '../Icon/Icon'
-import CopyIcon from 'shared/assets/icons/copy.svg'
+import CopyIcon from '@/shared/assets/icons/copy.svg?react'
 
 interface CodeProps {
   className?: string
@@ -20,7 +20,7 @@ const Code = (props: CodeProps) => {
   return (
       <pre className={classNames(cls.Code, {}, [className])}>
           <Button onClick={onCopy} className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
-              <Icon Svg={CopyIcon} />
+              <Icon Svg={CopyIcon} width='20px' height='20px' />
           </Button>
           <code>
               {text}

@@ -1,29 +1,27 @@
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Icon.module.scss'
 import { memo } from 'react'
 
-export enum IconSize {
-  S = 'size_s',
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl'
-}
-
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>
-  size?: IconSize
+  inverted?: boolean
 }
 
 const Icon = memo((props: IconProps) => {
-  const { className = '', Svg, size = IconSize.S } = props
+  const {
+    className = '',
+    Svg,
+    inverted,
+    ...otherProps
+  } = props
 
   const mods: Mods = {
-    [cls[size]]: true
+    [cls.inverted]: inverted
   }
 
   return (
-      <Svg className={classNames(cls.Icon, mods, [className])} />
+      <Svg className={classNames(cls.Icon, mods, [className])} {...otherProps} />
   )
 })
 

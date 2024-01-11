@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { ArticleListItem } from './ArticleListItem'
-import { ArticleView, type Article } from 'entities/Article/model/types/article'
+import { type Article } from '@/entities/Article/model/types/article'
+import { ArticleView } from '@/entities/Article/model/consts/consts'
 import { BrowserRouter } from 'react-router-dom'
-import { StoreProvider } from 'app/providers/StoreProvider'
+import { StoreProvider } from '@/app/providers/StoreProvider'
 
 const article = {
   id: '1',
@@ -107,6 +108,7 @@ type Story = StoryObj<typeof meta>
 export const Block: Story = {
   args: {
     view: ArticleView.BLOCK,
+    index: 1,
     article
   }
 }
@@ -114,6 +116,7 @@ export const Block: Story = {
 export const List: Story = {
   args: {
     view: ArticleView.LIST,
+    index: 1,
     article
   }
 }

@@ -20,7 +20,8 @@
         "react",
         "i18next",
         "@typescript-eslint",
-        "react-hooks"
+        "react-hooks",
+        "unused-imports"
     ],
     "globals": {
         "__IS_DEV__": true,
@@ -55,15 +56,16 @@
             4
         ],
         "import/no-unresolved": "off",
-        "no-unused-vars": "warn",
+        "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "warn",
+        "unused-imports/no-unused-imports": "error",
         "react/require-default-props": "off",
         "react/jsx-props-no-spreading": "off",
         "@typescript-eslint/no-floating-promises": "warn",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
         "i18next/no-literal-string": [
-            "error",
+            "warn",
             {
                 "markupOnly": true,
                 "ignoreAttribute": [
@@ -88,7 +90,10 @@
     },
     "ignorePatterns": [
         "webpack.config.ts",
-        "**/config/**/*"
+        "**/config/**/*",
+        "**/scripts/**/*.js",
+        "**/scripts/**/*.ts",
+        "vite.config.ts"
     ],
     "overrides": [
         {

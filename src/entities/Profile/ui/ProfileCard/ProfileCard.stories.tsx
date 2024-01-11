@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { ProfileCard } from './ProfileCard'
 import { BrowserRouter } from 'react-router-dom'
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency/model/types/currency'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency/model/types/currency'
 
 const meta = {
   title: 'entities/ProfileCard',

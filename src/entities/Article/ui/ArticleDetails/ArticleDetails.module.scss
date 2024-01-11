@@ -1,23 +1,9 @@
-.ArticleDetails {
-    min-height: 100%;
-}
+// .ArticleDetails {
+// min-height: 100%;
+// }
 
 .avatar {
     margin: 0 auto;
-}
-
-.title {
-    margin-top: 20px;
-}
-
-.skeleton {
-    margin-top: 15px;
-}
-
-.articleInfo {
-    display: flex;
-    gap: 10px;
-    align-items: center;
 }
 
 .avatarWrapper {
@@ -30,8 +16,4 @@
     width: 20px;
     height: 20px;
     fill: var(--primary-color)
-}
-
-.block {
-    margin-top: 16px;
 }

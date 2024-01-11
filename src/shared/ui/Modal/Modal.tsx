@@ -1,6 +1,9 @@
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
-import { useEffect, type ReactNode, useCallback, useState } from 'react'
+import { type ReactNode } from 'react'
+import { Overlay } from '../Overlay/Overlay'
+import { useModal } from '@/shared/lib/hooks/useModal/useModal'
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
 
 interface ModalProps {
   className?: string
@@ -10,57 +13,37 @@ interface ModalProps {
   lazy?: boolean
 }
 
+const ANIMATION_DELAY = 300
+
 const Modal = (props: ModalProps) => {
   const { className = '', children, isOpen = false, onClose, lazy = true } = props
 
+  const {
+    close,
+    isClosing,
+    isMounted
+  } = useModal({
+    animationDelay: ANIMATION_DELAY,
+    onClose,
+    isOpen
+  })
+
   const mods: Mods = {
-    [cls.opened]: isOpen
+    [cls.opened]: isOpen,
+    [cls.isClosing]: isClosing
   }
 
-  const [isMounted, setIsMounted] = useState(false)
-
-  const closeHandler = useCallback(() => {
-    if (onClose !== null && onClose !== undefined) {
-      onClose()
-    }
-  }, [onClose])
-
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-  }
-
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler()
-    }
-  }, [closeHandler])
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true)
-    }
-  }, [isOpen])
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', (e: KeyboardEvent) => { onKeyDown(e) })
-    }
-
-    return () => {
-      window.removeEventListener('keydown', (e: KeyboardEvent) => { onKeyDown(e) })
-    }
-  }, [isOpen, onKeyDown])
+  const { theme, toggleTheme } = useTheme()
 
   if (lazy && !isMounted) {
     return null
   }
 
   return (
-      <div className={classNames(cls.Modal, mods, [className])}>
-          <div className={cls.overlay} onClick={closeHandler}>
-              <div className={cls.content} onClick={onContentClick}>
-                  {children}
-              </div>
+      <div className={classNames(cls.Modal, mods, [className, theme, 'modal'])}>
+          <Overlay onClick={close} />
+          <div className={cls.content}>
+              {children}
           </div>
       </div>
   )

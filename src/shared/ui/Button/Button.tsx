@@ -1,4 +1,4 @@
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 import { memo, type ButtonHTMLAttributes, type ReactNode } from 'react'
 
@@ -26,16 +26,27 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean
   size?: ButtonSize
   disabled?: boolean
+  fullWidth?: boolean
 };
 
 const Button = memo((props: ButtonProps): React.ReactElement => {
-  const { className = '', children, theme = ButtonTheme.PRIMARY, size = ButtonSize.M, square = false, disabled = false, ...otherProps } = props
+  const {
+    className = '',
+    children,
+    theme = ButtonTheme.OUTLINE,
+    size = ButtonSize.M,
+    square = false,
+    disabled = false,
+    fullWidth = false,
+    ...otherProps
+  } = props
 
   const mods: Mods = {
     [cls[theme]]: true,
     [cls.square]: square,
     [cls[size]]: true,
-    [cls.disabled]: disabled
+    [cls.disabled]: disabled,
+    [cls.fullWidth]: fullWidth
   }
 
   return (

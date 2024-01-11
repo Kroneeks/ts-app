@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import AddCommentForm from './AddCommentForm'
 import { BrowserRouter } from 'react-router-dom'
-import { StoreProvider } from 'app/providers/StoreProvider'
+import { StoreProvider } from '@/app/providers/StoreProvider'
 
 const meta = {
   title: 'features/AddCommentForm',

@@ -1,11 +1,12 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { type StateSchema } from '@/app/providers/StoreProvider'
 import { type DeepPartial } from '@reduxjs/toolkit'
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading
 } from './articleDetails'
-import { type Article, ArticleType } from '../types/article'
+import { type Article } from '../types/article'
+import { ArticleType } from '../consts/consts'
 
 describe('articleDetails', () => {
   it('Should return data object', () => {

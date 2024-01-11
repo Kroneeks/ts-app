@@ -1,19 +1,21 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticlePageFilters.module.scss'
 import { useTranslation } from 'react-i18next'
-import { memo, useCallback, useMemo } from 'react'
-import { ArticleViewSelector, ArticleView, ArticleSortSelector, type ArticleSortField, ArticleTypeTabs } from 'entities/Article'
+import { memo, useCallback } from 'react'
+import { ArticleView, type ArticleSortField } from '@/entities/Article'
 import { articlesPageActions } from '../../model/slices/articlesPageSlice'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
-import { getArticlesPageOrder, getArticlesPageSort, getArticlesPageView, getArticlesPageSearch, getArticlesPageType } from '../../model/selectors/articlesPageSelector'
-import { Card } from 'shared/ui/Card/Card'
-import { Input } from 'shared/ui/Input/Input'
-import { type SortOrder } from 'shared/types'
+import { getArticlesPageOrder, getArticlesPageSort, getArticlesPageSearch, getArticlesPageType } from '../../model/selectors/articlesPageSelector'
+import { Card } from '@/shared/ui/Card'
+import { Input } from '@/shared/ui/Input'
+import { type SortOrder } from '@/shared/types/sort'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
-import { type TabItem, Tabs } from 'shared/ui/Tabs/Tabs'
-import { type ArticleType } from 'entities/Article/model/types/article'
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
+import { type ArticleType } from '@/entities/Article/model/consts/consts'
+import { ArticleSortSelector } from '@/features/ArticleSortSelector'
+import { ArticleViewSelector } from '@/features/ArticleViewSelector'
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
 
 interface ArticlePageFiltersProps {
   className?: string
@@ -23,11 +25,11 @@ const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
   const { className = '' } = props
   const { t } = useTranslation('article')
   const dispatch = useAppDispatch()
-  const view = useSelector(getArticlesPageView)
   const sort = useSelector(getArticlesPageSort)
   const order = useSelector(getArticlesPageOrder)
   const search = useSelector(getArticlesPageSearch)
   const type = useSelector(getArticlesPageType)
+  // const view = useSelector(getArticlesPageView)
 
   const fetchData = useCallback(() => {
     void dispatch(fetchArticlesList({ replace: true }))

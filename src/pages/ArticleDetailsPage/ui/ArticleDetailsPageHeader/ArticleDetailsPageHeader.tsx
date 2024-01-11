@@ -1,14 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './ArticleDetailsPageHeader.module.scss'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User'
-import { getArticleDetailsData } from 'entities/Article'
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article'
+import { getArticleDetailsData } from '@/entities/Article'
+import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article'
+import { HStack } from '@/shared/ui/Stack'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string
@@ -18,32 +17,32 @@ const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => 
   const { className = '' } = props
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const userData = useSelector(getUserAuthData)
   const article = useSelector(getArticleDetailsData)
   const canEdit = useSelector(getCanEditArticle)
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles)
+    navigate(getRouteArticles())
   }, [navigate])
 
   const onEditArticle = useCallback(() => {
-    navigate(`${RoutePath.articleDetails}${article?.id}/edit`)
-  }, [navigate, article?.id])
+    if (article) {
+      navigate(getRouteArticleEdit(article.id))
+    }
+  }, [navigate, article])
 
   return (
-      <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+      <HStack max justify='between' className={classNames('', {}, [className])}>
           <Button
               theme={ButtonTheme.OUTLINE}
               onClick={onBackToList}
             >{t('Назад к списку')}</Button>
           {canEdit && (
           <Button
-              className={cls.editBtn}
               theme={ButtonTheme.OUTLINE}
               onClick={onEditArticle}
               >{t('Редактировать')}</Button>
           )}
-      </div>
+      </HStack>
   )
 })
 

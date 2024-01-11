@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { CommentList } from './CommentList'
 import { BrowserRouter } from 'react-router-dom'
-import { StoreProvider } from 'app/providers/StoreProvider'
-import { type Comment } from 'entities/Comment/model/types/comment'
-import { type User } from 'entities/User/model/types/user'
+import { StoreProvider } from '@/app/providers/StoreProvider'
+import { type Comment } from '@/entities/Comment/model/types/comment'
+import { type User } from '@/entities/User/model/types/user'
 
 const meta = {
   title: 'entities/CommentList',

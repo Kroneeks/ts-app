@@ -1,36 +1,47 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleListItem.module.scss'
 import { useTranslation } from 'react-i18next'
-import { ArticleView, type Article, ArticleBlockType, type ArticleTextBlock } from '../../model/types/article'
+import { type Article, type ArticleTextBlock } from '../../model/types/article'
+import { ArticleView, ArticleBlockType } from '@/entities/Article/model/consts/consts'
 import { type HTMLAttributeAnchorTarget, memo } from 'react'
-import { Text } from 'shared/ui/Text/Text'
-import { Icon } from 'shared/ui/Icon/Icon'
-import EyeIcon from 'shared/assets/icons/eye.svg'
-import { Card } from 'shared/ui/Card/Card'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Text } from '@/shared/ui/Text'
+import { Icon } from '@/shared/ui/Icon'
+import EyeIcon from '@/shared/assets/icons/eye.svg?react'
+import { Card } from '@/shared/ui/Card'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { getRouteArticleDetails } from '@/shared/const/router'
+import { AppLink } from '@/shared/ui/AppLink'
+import { ARTICLE_LIST_ITEM_LOCASTORAGE_IDX } from '@/shared/const/localstorage'
+import { AppImage } from '@/shared/ui/AppImage/AppImage'
+import { Skeleton } from '@/shared/ui/Skeleton'
 
 interface ArticleListItemProps {
   className?: string
   article: Article
   view: ArticleView
   target?: HTMLAttributeAnchorTarget
+  index?: number
 }
 
 const ArticleListItem = memo((props: ArticleListItemProps) => {
-  const { className = '', article, view, target = '_blank' } = props
+  const { className = '', article, view, target = '_blank', index } = props
   const { t } = useTranslation('article')
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />
   const views = (
       <>
           <Text text={String(article.views)} className={cls.views} />
-          <Icon Svg={EyeIcon} />
+          <Icon Svg={EyeIcon} width='20px' height='20px' />
       </>
   )
+
+  const handleButtonClick = () => {
+    if (index) {
+      sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCASTORAGE_IDX, JSON.stringify(index))
+    }
+  }
 
   if (view === ArticleView.LIST) {
     const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
@@ -45,13 +56,18 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
                 </div>
                 <Text title={article.title} className={cls.title} />
                 {types}
-                <img src={article.img} className={cls.img} alt={article.title} />
+                <AppImage
+                    fallback={<Skeleton width='100%' height='250px' />}
+                    src={article.img}
+                    className={cls.img}
+                    alt={article.title}
+                />
                 {textBlock && (
                     <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                 )}
                 <div className={cls.footer}>
-                    <AppLink to={RoutePath.articleDetails + article.id} target={target}>
-                        <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее')}</Button>
+                    <AppLink to={getRouteArticleDetails(article.id)} target={target}>
+                        <Button theme={ButtonTheme.OUTLINE} onClick={handleButtonClick}>{t('Читать далее')}</Button>
                     </AppLink>
                     {views}
                 </div>
@@ -62,13 +78,19 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   return (
       <AppLink
-          to={RoutePath.articleDetails + article.id}
+          to={getRouteArticleDetails(article.id)}
           className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
           target={target}
+          onClick={handleButtonClick}
         >
           <Card>
               <div className={cls.imageWrapper}>
-                  <img src={article.img} alt={article.title} className={cls.img} />
+                  <AppImage
+                      fallback={<Skeleton width='200px' height='250px;' />}
+                      src={article.img}
+                      alt={article.title}
+                      className={cls.img}
+                    />
                   <Text text={article.createdAt} className={cls.date} />
               </div>
               <div className={cls.infoWrapper}>
