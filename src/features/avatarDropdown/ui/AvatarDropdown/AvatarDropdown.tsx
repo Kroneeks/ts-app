@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User'
 import { Dropdown } from '@/shared/ui/Popups'
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router'
-import { Avatar, AvatarSize } from '@/shared/ui/Avatar'
+import { Avatar } from '@/shared/ui/Avatar'
 
 interface AvatarDropdownProps {
   className?: string
@@ -50,7 +50,7 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
               onClick: onLogout
             }
           ]}
-          trigger={<Avatar size={AvatarSize.SMALL} src={authData.avatar ?? ''} />}
+          trigger={<Avatar size={30} fallbackInverted src={authData.avatar ?? ''} />}
         />
   )
 })

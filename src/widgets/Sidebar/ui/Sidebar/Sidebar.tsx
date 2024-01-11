@@ -7,7 +7,7 @@ import { SidebarItem } from '../SidebarItem/ui/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import { VStack } from '@/shared/ui/Stack'
-import { Icon, IconSize, IconTheme } from '@/shared/ui/Icon'
+import { Icon } from '@/shared/ui/Icon'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import { LangSwitcher } from '@/features/LangSwitcher'
 
@@ -34,9 +34,24 @@ const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
   }, [collapsed, sidebarItemsList])
 
   return (
-      <aside data-testid="sidebar-test" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-          <Button data-testid="sidebar-button" className={cls.collapseBtn} theme={ButtonTheme.CLEAR} size={ButtonSize.XL} onClick={onToggle} square>
-              <Icon Svg={ToggleIcon} theme={IconTheme.INVERTED} size={IconSize.S} />
+      <aside
+          data-testid="sidebar-test"
+          className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+        >
+          <Button
+              data-testid="sidebar-button"
+              className={cls.collapseBtn}
+              theme={ButtonTheme.CLEAR}
+              size={ButtonSize.XL}
+              onClick={onToggle}
+              square
+            >
+              <Icon
+                  Svg={ToggleIcon}
+                  inverted
+                  width='30px'
+                  height='30px'
+                />
           </Button>
           <VStack role="navigation" className={cls.items}>
               {itemsList}

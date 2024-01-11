@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react'
 import { Popover } from '@/shared/ui/Popups'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import NotificationIcon from '@/shared/assets/icons/notifications.svg?react'
-import { Icon, IconTheme } from '@/shared/ui/Icon'
+import { Icon } from '@/shared/ui/Icon'
 import { NotificationList } from '@/entities/Notification'
 import cls from './NotificationButton.module.scss'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -29,7 +29,7 @@ const NotificationButton = memo((props: NotificationButtonProps) => {
 
   const trigger = (
       <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
-          <Icon Svg={NotificationIcon} theme={IconTheme.INVERTED} />
+          <Icon Svg={NotificationIcon} inverted width='20px' height='20px' />
       </Button>
   )
 

@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './CommentCard.module.scss'
 import { type Comment } from '../../model/types/comment'
 import { memo } from 'react'
-import { Avatar, AvatarSize } from '@/shared/ui/Avatar'
+import { Avatar } from '@/shared/ui/Avatar'
 import { Text } from '@/shared/ui/Text'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { AppLink } from '@/shared/ui/AppLink'
@@ -35,7 +35,7 @@ const CommentCard = memo((props: CommentCardProps) => {
   return (
       <VStack gap='8' max className={classNames(cls.CommentCard, {}, [className])}>
           <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
-              <Avatar size={AvatarSize.SMALL} src={comment.user.avatar ?? 'https://cdn-icons-png.flaticon.com/512/456/456212.png'} />
+              <Avatar src={comment.user.avatar ?? 'https://cdn-icons-png.flaticon.com/512/456/456212.png'} />
               <Text title={comment.user.username} />
           </AppLink>
           <Text className={cls.body} text={comment.text} />

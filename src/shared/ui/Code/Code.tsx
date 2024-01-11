@@ -20,7 +20,7 @@ const Code = (props: CodeProps) => {
   return (
       <pre className={classNames(cls.Code, {}, [className])}>
           <Button onClick={onCopy} className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
-              <Icon Svg={CopyIcon} />
+              <Icon Svg={CopyIcon} width='20px' height='20px' />
           </Button>
           <code>
               {text}

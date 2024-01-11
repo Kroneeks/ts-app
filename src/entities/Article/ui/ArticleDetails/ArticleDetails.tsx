@@ -9,7 +9,7 @@ import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoadi
 import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import cls from './ArticleDetails.module.scss'
-import { Avatar, AvatarSize } from '@/shared/ui/Avatar'
+import { Avatar } from '@/shared/ui/Avatar'
 import EyeIcon from '@/shared/assets/icons/eye.svg?react'
 import CalendarIcon from '@/shared/assets/icons/calendar.svg?react'
 import { Icon } from '@/shared/ui/Icon'
@@ -77,16 +77,16 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
     content = (
         <>
             <HStack justify='center' max className={cls.avatarWrapper}>
-                <Avatar size={AvatarSize.LARGE} src={article?.img ?? ''} className={cls.avatar} />
+                <Avatar size={100} src={article?.img ?? ''} className={cls.avatar} />
             </HStack>
             <VStack gap='4' max>
                 <Text title={article?.title} text={article?.subtitle} />
                 <HStack gap='8' className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} />
+                    <Icon Svg={EyeIcon} width='20px' height='20px' />
                     <Text size={TextSize.S} text={String(article?.views)} />
                 </HStack>
                 <HStack gap='8' className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} />
+                    <Icon Svg={CalendarIcon} width='20px' height='20px' />
                     <Text size={TextSize.S} text={article?.createdAt} />
                 </HStack>
             </VStack>

@@ -5,7 +5,7 @@ import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
 import { Input } from '@/shared/ui/Input'
 import { type Profile } from '../../model/types/profile'
 import { Loader } from '@/shared/ui/Loader'
-import { Avatar, AvatarSize } from '@/shared/ui/Avatar'
+import { Avatar } from '@/shared/ui/Avatar'
 import { type Currency, CurrencySelect } from '@/entities/Currency'
 import { CountrySelect, type Country } from '@/entities/Country'
 import { HStack, VStack } from '@/shared/ui/Stack'
@@ -68,7 +68,7 @@ const ProfileCard = (props: ProfileCardProps) => {
       <VStack max gap='16' className={classNames(cls.ProfileCard, mods, [className])}>
           {data?.avatar && (
               <HStack justify='center' max className={cls.avatarWrapper}>
-                  <Avatar src={data?.avatar} alt={t('Аватар')} size={AvatarSize.LARGE} />
+                  <Avatar src={data?.avatar} alt={t('Аватар')} />
               </HStack>
           )
                     }

@@ -5,7 +5,6 @@ import { Card } from '@/shared/ui/Card'
 import { HStack, VStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text'
 import { StarRating } from '@/shared/ui/StarRating'
-import { IconSize } from '@/shared/ui/Icon'
 import { Modal } from '@/shared/ui/Modal'
 import { Input } from '@/shared/ui/Input'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
@@ -72,7 +71,7 @@ const RatingCard = memo((props: RatingCardProps) => {
       <Card className={classNames('', {}, [className])} max>
           <VStack align='center' gap='8'>
               <Text title={starsCount ? t('Спасибо за оценку') : title} />
-              <StarRating selectedStars={starsCount} size={IconSize.L} onSelect={onSelectStars} />
+              <StarRating selectedStars={starsCount} size={50} onSelect={onSelectStars} />
           </VStack>
           {
                 device === 'Mobile'
