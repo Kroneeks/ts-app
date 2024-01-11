@@ -6,6 +6,10 @@
     "module": "ESNext",
     "target": "es5",
     "jsx": "react-jsx",
+    "lib": [
+      "es5",
+      "es2015.promise"
+    ],
     "allowJs": true,
     "strict": true,
     "moduleResolution": "node",
