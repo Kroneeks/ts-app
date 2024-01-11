@@ -7,7 +7,7 @@ const MainPage = (): React.ReactElement => {
   const { t } = useTranslation('main')
 
   return (
-      <Page>
+      <Page data-testid={'MainPage'}>
           {t('Главная страница')}
           <RatingCard title={t('Как вам статья?')} feedbackTitle={t('Оставьте отзыв о статье')} hasFeedback />
       </Page>

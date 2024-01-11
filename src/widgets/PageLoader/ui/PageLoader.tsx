@@ -8,7 +8,7 @@ interface PageLoaderProps {
 
 const PageLoader = ({ className = '' }: PageLoaderProps): React.ReactElement => {
   return (
-      <div className={classNames(cls.PageLoader, {}, [className])}>
+      <div data-testid='PageLoader' className={classNames(cls.PageLoader, {}, [className])}>
           <Loader />
       </div>
   )
