@@ -82,6 +82,15 @@
         "MANAGER"
       ],
       "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
     }
   ],
   "articles": [

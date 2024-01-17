@@ -8,7 +8,8 @@
     "jsx": "react-jsx",
     "lib": [
       "es5",
-      "es2015.promise"
+      "es2015.promise",
+      "dom"
     ],
     "allowJs": true,
     "strict": true,
@@ -21,7 +22,7 @@
     },
     "strictNullChecks": true,
     "isolatedModules": true,
-    "types": ["vite-plugin-svgr/client", "node"]
+    "types": ["vite-plugin-svgr/client", "cypress", "node"]
   },
   "ts-node": {
     "compilerOptions": {

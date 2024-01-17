@@ -33,7 +33,7 @@ const ArticlePage = memo(({ className = '' }: ArticlePageProps) => {
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-          <Page onScrollEnd={onLoadNextPart} className={cls.ArticlePage}>
+          <Page onScrollEnd={onLoadNextPart} className={cls.ArticlePage} data-testid='ArticlePage'>
               <ArticlePageFilters />
               <ArticleInfiniteList onLoadNextPart={onLoadNextPart} className={cls.list} />
           </Page>
