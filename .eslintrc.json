@@ -94,7 +94,8 @@
         "**/scripts/**/*.js",
         "**/scripts/**/*.ts",
         "vite.config.ts",
-        "**/cypress/**/*"
+        "**/cypress/**/*",
+        "cypress.config.ts"
     ],
     "overrides": [
         {
