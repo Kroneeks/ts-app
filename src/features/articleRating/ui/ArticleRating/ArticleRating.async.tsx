@@ -1,13 +1,13 @@
-import { Suspense, lazy } from 'react'
-import { type ArticleRatingProps } from './ArticleRating'
-import { Loader } from '@/shared/ui/Loader'
+import { Suspense, lazy } from 'react';
+import { type ArticleRatingProps } from './ArticleRating';
+import { Loader } from '@/shared/ui/Loader';
 
-const ArticleRatingLazy = lazy(async () => await import('./ArticleRating'))
+const ArticleRatingLazy = lazy(async () => await import('./ArticleRating'));
 
 export const ArticleRatingAsync = (props: ArticleRatingProps) => {
-  return (
-      <Suspense fallback={<Loader />}>
-          <ArticleRatingLazy {...props} />
-      </Suspense>
-  )
-}
+    return (
+        <Suspense fallback={<Loader />}>
+            <ArticleRatingLazy {...props} />
+        </Suspense>
+    );
+};

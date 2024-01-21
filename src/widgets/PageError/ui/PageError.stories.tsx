@@ -1,20 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { PageError } from './PageError'
+import { PageError } from './PageError';
 
 const meta = {
-  title: 'widgets/PageError',
-  component: PageError,
-  parameters: {
-    layout: 'centered'
-  },
-  argTypes: {}
-} satisfies Meta<typeof PageError>
+    title: 'widgets/PageError',
+    component: PageError,
+    parameters: {
+        layout: 'centered',
+    },
+    argTypes: {},
+} satisfies Meta<typeof PageError>;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 export const Standart: Story = {
-  render: () => <PageError />
-}
+    render: () => <PageError />,
+};
 
-export default meta
+export default meta;

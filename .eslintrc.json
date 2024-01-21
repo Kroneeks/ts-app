@@ -7,14 +7,13 @@
         "standard-with-typescript",
         "plugin:react/recommended",
         "plugin:i18next/recommended",
-        "plugin:storybook/recommended"
+        "plugin:storybook/recommended",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": [
-            "./tsconfig.json"
-        ]
+        "project": ["./tsconfig.json"]
     },
     "plugins": [
         "react",
@@ -29,17 +28,11 @@
     },
     "rules": {
         "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": [
-            "error"
-        ],
+        "@typescript-eslint/no-use-before-define": ["error"],
         "react/jsx-filename-extension": [
             2,
             {
-                "extensions": [
-                    "js",
-                    "jsx",
-                    ".tsx"
-                ]
+                "extensions": ["js", "jsx", ".tsx"]
             }
         ],
         "import/prefer-default-export": "off",
@@ -47,14 +40,6 @@
         "@typescript-eslint/strict-boolean-expressions": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-uses-react": "off",
-        "react/jsx-indent": [
-            2,
-            4
-        ],
-        "react/jsx-indent-props": [
-            2,
-            4
-        ],
         "import/no-unresolved": "off",
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "warn",
@@ -68,9 +53,7 @@
             "warn",
             {
                 "markupOnly": true,
-                "ignoreAttribute": [
-                    "data-testid"
-                ]
+                "ignoreAttribute": ["data-testid"]
             }
         ],
         "@typescript-eslint/explicit-function-return-type": "off",
@@ -81,12 +64,13 @@
         "@typescript-eslint/no-misused-promises": [
             "error",
             {
-            "checksVoidReturn": false
+                "checksVoidReturn": false
             }
         ],
         "@typescript-eslint/no-invalid-void-type": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "warn",
-        "n/no-callback-literal": "off"
+        "n/no-callback-literal": "off",
+        "react/jsx-max-props-per-line": ["error", { "maximum": 3 }]
     },
     "ignorePatterns": [
         "webpack.config.ts",
@@ -99,9 +83,7 @@
     ],
     "overrides": [
         {
-            "files": [
-                "**/src/**/*.{test, stories}.{ts,tsx}"
-            ],
+            "files": ["**/src/**/*.{test, stories}.{ts,tsx}"],
             "rules": {
                 "i18next/no-literal-string": "off",
                 "@typescript-eslint/unbound-method": "off"
@@ -111,9 +93,7 @@
                 "plugin:@typescript-eslint/recommended-requiring-type-checking"
             ],
             "parserOptions": {
-                "project": [
-                    "./tsconfig.json"
-                ]
+                "project": ["./tsconfig.json"]
             }
         }
     ]

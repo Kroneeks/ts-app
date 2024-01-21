@@ -8,7 +8,7 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 const files = project.getSourceFiles();
 
 function isSvg(value: string) {
-    return value.startsWith('@/shared') && value.endsWith('svg')
+    return value.startsWith('@/shared') && value.endsWith('svg');
 }
 
 files.forEach((sourceFile) => {

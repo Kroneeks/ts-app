@@ -1,54 +1,57 @@
-import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
-import cls from './Input.module.scss'
-import { memo, type InputHTMLAttributes, type FC } from 'react'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames';
+import cls from './Input.module.scss';
+import { memo, type InputHTMLAttributes, type FC } from 'react';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'type' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'type' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
-  className?: string
-  value?: string | number
-  type?: string
-  onChange?: (value: string) => void
-  readonly?: boolean
-  placeholder?: string
-  'data-testid'?: string
+    className?: string;
+    value?: string | number;
+    type?: string;
+    onChange?: (value: string) => void;
+    readonly?: boolean;
+    placeholder?: string;
+    'data-testid'?: string;
 }
 
 const Input: FC<InputProps> = memo((props: InputProps) => {
-  const {
-    className = '',
-    value = '',
-    type = 'text',
-    placeholder = '',
-    onChange,
-    readonly = false,
-    'data-testid': dataTestId = '',
-    ...otherProps
-  } = props
+    const {
+        className = '',
+        value = '',
+        type = 'text',
+        placeholder = '',
+        onChange,
+        readonly = false,
+        'data-testid': dataTestId = '',
+        ...otherProps
+    } = props;
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value)
-  }
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        onChange?.(e.target.value);
+    };
 
-  const mods: Mods = {
-    [cls.readonly]: readonly
-  }
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    };
 
-  return (
-      <div className={classNames(cls.Input, mods, [className])}>
-          <input
-              type={type}
-              value={value}
-              readOnly={readonly}
-              onChange={onChangeHandler}
-              placeholder={placeholder}
-              data-testid={dataTestId}
-              {...otherProps}
+    return (
+        <div className={classNames(cls.Input, mods, [className])}>
+            <input
+                type={type}
+                value={value}
+                readOnly={readonly}
+                onChange={onChangeHandler}
+                placeholder={placeholder}
+                data-testid={dataTestId}
+                {...otherProps}
             />
-      </div>
-  )
-})
+        </div>
+    );
+});
 
-Input.displayName = 'Input'
+Input.displayName = 'Input';
 
-export { Input }
+export { Input };

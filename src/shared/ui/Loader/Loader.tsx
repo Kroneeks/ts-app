@@ -1,27 +1,27 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import './Loader.scss'
+import { classNames } from '@/shared/lib/classNames/classNames';
+import './Loader.scss';
 
 interface LoaderProps {
-  className?: string
+    className?: string;
 }
 
 const Loader = ({ className = '' }: LoaderProps): React.ReactElement => {
-  return (
-      <div className={classNames('lds-default', {}, [className])}>
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-      </div>
-  )
-}
+    return (
+        <div className={classNames('lds-default', {}, [className])}>
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+        </div>
+    );
+};
 
-export { Loader }
+export { Loader };

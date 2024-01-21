@@ -1,38 +1,34 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "lib": [
-      "es5",
-      "es2015.promise",
-      "dom"
-    ],
-    "allowJs": true,
-    "strict": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "strictNullChecks": true,
-    "isolatedModules": true,
-    "types": ["vite-plugin-svgr/client", "cypress", "node"]
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    "./scripts/refactoring/**/*.ts",
-    "./config/jest/setupTests.ts"
-  ]
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "lib": ["es5", "es2015.promise", "dom"],
+        "allowJs": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+        },
+        "strictNullChecks": true,
+        "isolatedModules": true,
+        "types": ["vite-plugin-svgr/client", "cypress", "node"],
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS",
+        },
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
+        "./scripts/refactoring/**/*.ts",
+        "./config/jest/setupTests.ts",
+    ],
 }

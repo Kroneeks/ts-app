@@ -1,132 +1,132 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button, ButtonSize, ButtonTheme } from './Button'
+import { Button, ButtonSize, ButtonTheme } from './Button';
 
 const meta = {
-  title: 'shared/Button',
-  component: Button,
-  parameters: {
-    layout: 'centered'
-  },
-  tags: ['autodocs'],
-  argTypes: {}
-} satisfies Meta<typeof Button>
+    title: 'shared/Button',
+    component: Button,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    argTypes: {},
+} satisfies Meta<typeof Button>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Clear: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.CLEAR
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.CLEAR,
+    },
+};
 
 export const ClearInverted: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.CLEAR_INVERTED
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.CLEAR_INVERTED,
+    },
+};
 
 export const Outline: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.OUTLINE
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.OUTLINE,
+    },
+};
 
 export const Primary: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.PRIMARY
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.PRIMARY,
+    },
+};
 
 export const Secondary: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.SECONDARY
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.SECONDARY,
+    },
+};
 
 export const BackgroundTheme: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.BACKGROUND
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.BACKGROUND,
+    },
+};
 
 export const BackgroundInverted: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.BACKGROUND_INVERTED
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.BACKGROUND_INVERTED,
+    },
+};
 
 export const OutlineSizeM: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.M
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.OUTLINE,
+        size: ButtonSize.M,
+    },
+};
 
 export const OutlineSizeL: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.L
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.OUTLINE,
+        size: ButtonSize.L,
+    },
+};
 
 export const OutlineSizeXL: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.XL
-  }
-}
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.OUTLINE,
+        size: ButtonSize.XL,
+    },
+};
 
 export const Square: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND,
-    square: true
-  }
-}
+    args: {
+        children: '>',
+        theme: ButtonTheme.BACKGROUND,
+        square: true,
+    },
+};
 
 export const SquareSizeM: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND,
-    square: true,
-    size: ButtonSize.M
-  }
-}
+    args: {
+        children: '>',
+        theme: ButtonTheme.BACKGROUND,
+        square: true,
+        size: ButtonSize.M,
+    },
+};
 
 export const SquareSizeL: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND,
-    square: true,
-    size: ButtonSize.L
-  }
-}
+    args: {
+        children: '>',
+        theme: ButtonTheme.BACKGROUND,
+        square: true,
+        size: ButtonSize.L,
+    },
+};
 
 export const SquareSizeXL: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND,
-    square: true,
-    size: ButtonSize.XL
-  }
-}
+    args: {
+        children: '>',
+        theme: ButtonTheme.BACKGROUND,
+        square: true,
+        size: ButtonSize.XL,
+    },
+};
 
 export const Disabled: Story = {
-  args: {
-    children: 'Disabled',
-    theme: ButtonTheme.BACKGROUND,
-    disabled: true
-  }
-}
+    args: {
+        children: 'Disabled',
+        theme: ButtonTheme.BACKGROUND,
+        disabled: true,
+    },
+};

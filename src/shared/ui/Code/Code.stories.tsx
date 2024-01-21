@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Code } from './Code'
+import { Code } from './Code';
 
 const meta = {
-  title: 'shared/Code',
-  component: Code,
-  parameters: {
-    layout: 'centered'
-  },
-  tags: ['autodocs'],
-  argTypes: {}
-} satisfies Meta<typeof Code>
+    title: 'shared/Code',
+    component: Code,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    argTypes: {},
+} satisfies Meta<typeof Code>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Clear: Story = {
-  args: {
-    text: `const meta = {\n
+    args: {
+        text: `const meta = {\n
         title: 'shared/Code',\n
         component: Code,\n
         parameters: {\n
@@ -25,6 +25,6 @@ export const Clear: Story = {
         },\n
         tags: ['autodocs'],\n
         argTypes: {}\n
-        } satisfies Meta<typeof Code>`
-  }
-}
+        } satisfies Meta<typeof Code>`,
+    },
+};
