@@ -1,0 +1,11 @@
+{
+    "id": "1",
+    "first": "test",
+    "lastname": "user",
+    "age": 22,
+    "currency": "$ USD",
+    "country": "Poland",
+    "city": "Lithuania",
+    "username": "testuser",
+    "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+}
