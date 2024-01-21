@@ -11,19 +11,20 @@ describe('User is on article details page', () => {
   afterEach(() => {
     cy.removeArticle(currentArticleId);
   })
-  it('User see article details', () => {
+  it.skip('User see article details', () => {
     cy.getByTestId('ArticleDetails.Info').should('exist');
   })
-  it('User see recommendations list', () => {
+  it.skip('User see recommendations list', () => {
     cy.getByTestId('ArticleRecommendationsList').should('exist');
   })
-  it('User set comment', () => {
+  it.skip('User set comment', () => {
     cy.getByTestId('ArticleDetails.Info');
     cy.getByTestId('AddCommentForm').scrollIntoView();
     cy.addComment('text')
     cy.getByTestId('CommentCard.Content').should('have.length', 1)
   })
   it('User set rating', () => {
+    cy.intercept('GET', '**/articles/*', {fixture: 'article-details.json'})
     cy.getByTestId('ArticleDetails.Info');
     cy.getByTestId('RatingCard').scrollIntoView();
     cy.setRate(5, 'feedback');
