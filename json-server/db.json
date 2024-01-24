@@ -61,6 +61,10 @@
             "username": "admin",
             "password": "123",
             "roles": ["ADMIN"],
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": true
+            },
             "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
         },
         {
@@ -68,6 +72,10 @@
             "username": "user",
             "password": "123",
             "roles": ["USER"],
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": false
+            },
             "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
         },
         {
@@ -75,6 +83,10 @@
             "username": "manager",
             "password": "123",
             "roles": ["MANAGER"],
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": true
+            },
             "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
         },
         {
