@@ -4,8 +4,8 @@ import { ArticleView } from '@/entities/Article';
 import { memo } from 'react';
 import ListIcon from '@/shared/assets/icons/list.svg?react';
 import BlockIcon from '@/shared/assets/icons/tiled.svg?react';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 
 interface ArticleViewSelectorProps {
     className?: string;

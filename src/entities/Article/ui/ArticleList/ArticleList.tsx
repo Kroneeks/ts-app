@@ -5,7 +5,7 @@ import { type Article } from '../../model/types/article';
 import { ArticleView } from '@/entities/Article/model/consts/consts';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import {
     type HTMLAttributeAnchorTarget,
     memo,
