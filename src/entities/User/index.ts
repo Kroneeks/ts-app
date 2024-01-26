@@ -6,6 +6,7 @@ export type { UserSchema, User } from './model/types/user';
 export { UserRole } from './model/types/user';
 export { isUserAdmin, isUserManager } from './model/selectors/roleSelectors';
 export { saveJsonSettings } from './model/services/saveJsonSettings';
+export { initAuthData } from './model/services/iniAuthData';
 export {
     getJsonSettings,
     useJsonSettings,
