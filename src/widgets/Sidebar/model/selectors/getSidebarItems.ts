@@ -9,9 +9,12 @@ import {
 } from '@/shared/const/router';
 
 import MainIcon from '@/shared/assets/icons/main.svg?react';
-import AboutIcon from '@/shared/assets/icons/about.svg?react';
+import AboutIconDeprecated from '@/shared/assets/icons/about.svg?react';
 import ProfileIcon from '@/shared/assets/icons/profile.svg?react';
 import ArticlesIcon from '@/shared/assets/icons/articles.svg?react';
+
+import AboutIcon from '@/shared/assets/icons/info.svg?react';
+import { toggleFeatures } from '@/shared/lib/features';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     const sidebarItemsList: SidebarItemType[] = [
@@ -23,7 +26,11 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
         {
             path: getRouteAbout(),
             text: 'О сайте',
-            Icon: AboutIcon,
+            Icon: toggleFeatures({
+                name: 'isAppRedesigned',
+                on: () => AboutIcon,
+                off: () => AboutIconDeprecated,
+            }),
         },
     ];
 

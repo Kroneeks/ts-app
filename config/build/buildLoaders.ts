@@ -21,7 +21,7 @@ export function buildLoaders(options: buildOptions): RuleSetRule[] {
                 loader: '@svgr/webpack',
                 options: {
                     icon: true,
-                    svgo: [
+                    svgoConfig: [
                         {
                             name: 'convertColors',
                             params: {

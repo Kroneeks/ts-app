@@ -9,9 +9,11 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
-import { Icon } from '@/shared/ui/deprecated/Icon';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow.svg?react';
 
 interface SidebarProps {
     className?: string;
@@ -39,11 +41,28 @@ const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
                     data-testid="sidebar-test"
                     className={classNames(
                         cls.SidebarRedesigned,
-                        { [cls.collapsed]: collapsed },
+                        { [cls.collapsedRedesigned]: collapsed },
                         [className],
                     )}
                 >
-                    <AppLogo className={cls.appLogo} />
+                    <AppLogo
+                        size={collapsed ? 30 : 50}
+                        className={cls.appLogo}
+                    />
+                    <VStack role="navigation" className={cls.items}>
+                        {itemsList}
+                    </VStack>
+                    <Icon
+                        Svg={ArrowIcon}
+                        data-testid="sidebar-button"
+                        className={cls.collapseBtn}
+                        onClick={onToggle}
+                        clickable
+                    />
+                    <div className={classNames(cls.switchers)}>
+                        <ThemeSwitcher />
+                        <LangSwitcher className={cls.lang} short={collapsed} />
+                    </div>
                 </aside>
             }
             off={
@@ -63,7 +82,7 @@ const Sidebar = memo(({ className = '' }: SidebarProps): React.ReactElement => {
                         onClick={onToggle}
                         square
                     >
-                        <Icon
+                        <IconDeprecated
                             Svg={ToggleIcon}
                             inverted
                             width="30px"
