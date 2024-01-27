@@ -3,10 +3,10 @@ import { Listbox as HListBox } from '@headlessui/react';
 import cls from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '../../../Button/Button';
+import { HStack } from '../../../Stack';
 import { type DropDownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
-import { HStack } from '@/shared/ui/redesigned/Stack';
 
 export interface ListBoxItem {
     id?: number;
@@ -26,10 +26,6 @@ interface ListBoxProps {
     label?: string;
 }
 
-/**
- * Component is deprecated, better use components from REDESIGN folder
- * @deprecated
- */
 export const ListBox = (props: ListBoxProps) => {
     const {
         className = '',
@@ -43,7 +39,7 @@ export const ListBox = (props: ListBoxProps) => {
     } = props;
     const [selectedPerson, setSelectedPerson] = useState();
 
-    const optionsClasses = [mapDirectionClass[direction]];
+    const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
 
     return (
         <HStack gap="4">

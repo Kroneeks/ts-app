@@ -1,0 +1,20 @@
+.Avatar {
+    border-radius: 50%;
+}
+
+.Avatar img {
+    position: relative;
+    width: 100%;
+}
+
+.small {
+    width: var(--avatar-small-size)
+}
+
+.normal {
+    width: var(--avatar-normal-size)
+}
+
+.large {
+    width: var(--avatar-large-size)
+}

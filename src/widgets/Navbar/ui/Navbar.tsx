@@ -12,8 +12,8 @@ import { getRouteArticleCreate } from '@/shared/const/router';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { HStack } from '@/shared/ui/deprecated/Stack';
-import { Portal } from '@/shared/ui/deprecated/Portal';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Portal } from '@/shared/ui/redesigned/Portal';
 
 interface NavbarProps {
     className?: string;
