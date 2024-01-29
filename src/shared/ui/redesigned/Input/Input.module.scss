@@ -1,7 +1,45 @@
+.Input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-radius: 48px;
+    padding: 8px 16px;
+    border: 2px solid var(--icon-redesigned);
+    height: 38px;
+    width: 100%;
+
+    .withAddonLeft {
+        padding-left: 8px;
+    }
+
+    .withAddonRight {
+        padding-right: 8px;
+    }
+}
+
+.addonLeft, .addonRight {
+    display: flex;
+}
+
 .Input input {
-    padding: 10px;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
+    width: 100%;
+    color: var(--text-redesigned);
+    background: none;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+        color: var(--hint-redesigned);
+    }
+}
+
+.focused {
+    border: 2px solid var(--accent-redesigned);
+
+    .addonLeft svg, .addonRight svg {
+        color: var(--accent-redesigned);
+    }
 }
 
 .readonly {
