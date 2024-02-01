@@ -24,7 +24,11 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
     const userInfo = (
         <>
-            <Avatar size={32} src={article.user.avatar ?? ''} />
+            <Avatar
+                size={32}
+                src={article.user.avatar ?? ''}
+                className={cls.avatar}
+            />
             <Text text={article.user.username} bold />
         </>
     );
@@ -108,7 +112,7 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             target={target}
             data-testid="ArticleListItem"
         >
-            <Card className={cls.card} borderR="xl-round">
+            <Card className={cls.card} borderR="xl-round" padding="0">
                 <AppImage
                     fallback={<Skeleton width={200} height={200} />}
                     src={article.img}

@@ -70,7 +70,7 @@
         "@typescript-eslint/no-invalid-void-type": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "warn",
         "n/no-callback-literal": "off",
-        "react/jsx-max-props-per-line": ["error", { "maximum": 5 }]
+        "react/jsx-max-props-per-line": ["error", { "maximum": 3 }]
     },
     "ignorePatterns": [
         "webpack.config.ts",
