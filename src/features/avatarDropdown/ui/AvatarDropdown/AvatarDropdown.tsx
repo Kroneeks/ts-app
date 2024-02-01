@@ -9,7 +9,11 @@ import {
     isUserManager,
     userActions,
 } from '@/entities/User';
-import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAdmin,
+    getRouteProfile,
+    getRouteSettings,
+} from '@/shared/const/router';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
@@ -47,6 +51,10 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         {
             content: t('Профиль'),
             href: getRouteProfile(authData.id),
+        },
+        {
+            content: t('Настройки'),
+            href: getRouteSettings(),
         },
         {
             content: t('Выйти'),

@@ -1,5 +1,5 @@
 import { type ReactElement } from 'react';
-import { getFeatureFlag } from '../setGetFeatures';
+import { getFeatureFlag } from '../../lib/setGetFeatures';
 import { type FeatureFlags } from '@/shared/types/featureFlags';
 
 interface ToggleFeaturesProps {

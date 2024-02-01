@@ -2,5 +2,9 @@
     "Тестовый пример": "Test example",
     "Язык": "English",
     "Короткий язык": "En",
-    "У вас нет доступа к этой странице": "You haven't permission for this page"
+    "У вас нет доступа к этой странице": "You haven't permission for this page",
+    "Настройки": "Settings",
+    "Админка": "Admin",
+    "Профиль": "Profile",
+    "Выйти": "Exit"
 }
