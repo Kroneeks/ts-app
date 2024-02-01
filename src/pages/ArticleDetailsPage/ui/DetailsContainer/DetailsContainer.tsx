@@ -14,7 +14,7 @@ const DetailsContainer = memo((props: DetailsContainerProps) => {
     const { id } = useParams<{ id: string }>();
 
     return (
-        <Card borderR="xl-round" className={className} padding="24" max>
+        <Card borderR="sm-round" className={className} padding="24" max>
             <ArticleDetails id={id} />
         </Card>
     );

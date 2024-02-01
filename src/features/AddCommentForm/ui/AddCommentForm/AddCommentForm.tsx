@@ -53,7 +53,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 on={
-                    <Card padding="24" borderR="xl-round" max>
+                    <Card padding="24" borderR="sm-round" max>
                         <HStack
                             max
                             gap="16"

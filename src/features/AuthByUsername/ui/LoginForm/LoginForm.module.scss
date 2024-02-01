@@ -1,19 +1,8 @@
 .LoginForm {
-    display: flex;
-    flex-direction: column;
     width: 400px;
     align-items: center;
 }
 
-.loginTitle {
-    margin-bottom: 20px;
-}
-
 .loginError {
-    margin: 15px 0;
     text-align: center;
-}
-
-.loginBtn {
-    margin-top: 20px;
 }

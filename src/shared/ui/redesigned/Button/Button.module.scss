@@ -53,6 +53,26 @@
     &:hover {
         border-color: var(--accent-redesigned);
     }
+
+    &.normal {
+        border-color: var(--icon-redesigned);
+    }
+
+    &.error {
+        border-color: var(--cancel-redesigned);
+
+        &:hover {
+            color: var(--cancel-redesigned);
+        }
+    }
+
+    &.success {
+        border-color: var(--save-redesigned);
+
+        &:hover {
+            color: var(--save-redesigned);
+        }
+    }
 }
 
 .outline_red {

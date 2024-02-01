@@ -34,7 +34,7 @@ export const App = (): React.ReactElement => {
                     content={<AppRouter />}
                     header={<Navbar />}
                     sidebar={<Sidebar />}
-                    toolbar={<div>dsfsd</div>}
+                    toolbar={<div></div>}
                 />
             </Suspense>
         </div>
