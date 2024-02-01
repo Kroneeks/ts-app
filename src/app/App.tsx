@@ -28,7 +28,7 @@ export const App = (): React.ReactElement => {
     }
 
     return (
-        <div className={classNames('app_redesigned', {}, [theme])}>
+        <div id="app" className={classNames('app_redesigned', {}, [theme])}>
             <Suspense fallback="">
                 <MainLayout
                     content={<AppRouter />}

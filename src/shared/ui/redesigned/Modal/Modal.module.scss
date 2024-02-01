@@ -13,12 +13,23 @@
 .content {
     padding: 20px;
     border-radius: 15px;
-    background: var(--modal-bg-color);
     color: var(--modal-primary-color);
     transition: 0.3s ease transform;
     transform: scale(0.5);
     max-width: 60%;
     z-index: var(--modal-z-index);
+}
+
+.modalNew {
+    .content {
+        background: var(--light-bg-redesigned);
+    }
+}
+
+.modalOld {
+    .content {
+        background: var(--modal-bg-color);
+    }
 }
 
 .opened{

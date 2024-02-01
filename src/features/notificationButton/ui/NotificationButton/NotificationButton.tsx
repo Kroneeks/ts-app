@@ -5,7 +5,7 @@ import { Icon } from '@/shared/ui/redesigned/Icon';
 import { NotificationList } from '@/entities/Notification';
 import cls from './NotificationButton.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import useDeviceDetection from '@/shared/lib/hooks/useDeviceDetection/useDeviceDetection';
 
 interface NotificationButtonProps {
