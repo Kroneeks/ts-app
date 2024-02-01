@@ -20,6 +20,8 @@ import {
     type VirtuosoGridHandle,
 } from 'react-virtuoso';
 import { ARTICLE_LIST_ITEM_LOCASTORAGE_IDX } from '@/shared/const/localstorage';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
     className?: string;
@@ -191,14 +193,34 @@ const ArticleList = (props: ArticleListProps) => {
     }
 
     return (
-        <div
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-            data-testid="ArticleList"
-        >
-            {articles.length > 0 ? articles.map(renderArticle) : null}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <HStack
+                    className={classNames(cls.ArticleListRedesigned, {}, [])}
+                    wrap="wrap"
+                    gap="16"
+                    data-testid="ArticleList"
+                >
+                    {articles.length > 0 ? articles.map(renderArticle) : null}
 
-            {isLoading && getSkeletons(view)}
-        </div>
+                    {isLoading && getSkeletons(view)}
+                </HStack>
+            }
+            off={
+                <div
+                    className={classNames(cls.ArticleList, {}, [
+                        className,
+                        cls[view],
+                    ])}
+                    data-testid="ArticleList"
+                >
+                    {articles.length > 0 ? articles.map(renderArticle) : null}
+
+                    {isLoading && getSkeletons(view)}
+                </div>
+            }
+        />
     );
 };
 

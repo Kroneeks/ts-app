@@ -5,6 +5,7 @@ import { type ReactNode, memo, type HTMLAttributes } from 'react';
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
+export type FlexWrap = 'nowrap' | 'wrap';
 export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -39,6 +40,7 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
     justify?: FlexJustify;
     align?: FlexAlign;
     direction: FlexDirection;
+    wrap?: FlexWrap;
     gap?: FlexGap;
     max?: boolean;
 }
@@ -51,6 +53,7 @@ const Flex = memo((props: FlexProps) => {
         align = 'center',
         direction = 'row',
         gap = '8',
+        wrap = 'nowrap',
         max = false,
         ...otherProps
     } = props;
@@ -60,6 +63,7 @@ const Flex = memo((props: FlexProps) => {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
+        cls[wrap],
         gap && gapClasses[gap],
     ];
 
