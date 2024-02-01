@@ -20,6 +20,7 @@ import {
     TextTheme,
 } from '@/shared/ui/deprecated/Text';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import cls from './ArticleDetails.module.scss';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg?react';
@@ -28,9 +29,8 @@ import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { renderArticleBlock } from './renderBlock';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 interface ArticleDetailsProps {
@@ -83,6 +83,12 @@ const Deprecated = () => {
     );
 };
 
+const Skeleton = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+});
+
 const Redesigned = () => {
     const article = useSelector(getArticleDetailsData);
 
@@ -119,8 +125,8 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     if (isLoading) {
         content = (
-            <>
-                <SkeletonDeprecated
+            <VStack gap="16" max>
+                <Skeleton
                     className={cls.avatar}
                     width={200}
                     height={200}
@@ -138,15 +144,28 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     width={'100%'}
                     height={200}
                 />
-            </>
+            </VStack>
         );
     } else if (error) {
         content = (
-            <TextDeprecated
-                theme={TextTheme.ERROR}
-                title={t('Произошла ошибка при загрузке статьи')}
-                align={TextAlign.CENTER}
-                text={error}
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <Text
+                        variant="error"
+                        title={t('Произошла ошибка при загрузке статьи')}
+                        align="center"
+                        text={error}
+                    />
+                }
+                off={
+                    <TextDeprecated
+                        theme={TextTheme.ERROR}
+                        title={t('Произошла ошибка при загрузке статьи')}
+                        align={TextAlign.CENTER}
+                        text={error}
+                    />
+                }
             />
         );
     } else {

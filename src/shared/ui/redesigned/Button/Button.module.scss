@@ -47,11 +47,23 @@
 
 .outline {
     background: none;
-    border: 1px solid var(--icon-redesigned);
+    border: 2px solid var(--icon-redesigned);
     border-radius: 34px;
 
     &:hover {
-        border: 1px solid var(--accent-redesigned);
+        border-color: var(--accent-redesigned);
+    }
+}
+
+.outline_red {
+    background: none;
+    border: 2px solid var(--red-light);
+    border-radius: 34px;
+    color: var(--red-light);
+
+    &:hover {
+        border-color: var(--red-dark);
+        color: var(--red-dark);
     }
 }
 
