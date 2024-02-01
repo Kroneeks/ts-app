@@ -2,5 +2,8 @@
     "Пост не найден": "The post hasn't been find",
     "Произошла ошибка при загрузке статьи": "An error occured while loading the post",
     "Комментарии": "Comments",
-    "Оценка статей скоро появится": "Article rating comming soon"
+    "Оценка статей скоро появится": "Article rating comming soon",
+    "{{count}} просмотров_zero": "{{count}} views",
+    "{{count}} просмотров_one": "{{count}} view",
+    "{{count}} просмотров_other": "{{count}} views"
 }
