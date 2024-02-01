@@ -3,7 +3,6 @@ import cls from './AppLogo.module.scss';
 import { memo } from 'react';
 import { HStack } from '../Stack';
 import AppSvg from '@/shared/assets/icons/home.svg';
-import { Icon } from '../../deprecated/Icon';
 
 interface AppLogoProps {
     className?: string;
@@ -17,10 +16,10 @@ const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => {
             justify="center"
             className={classNames(cls.appLogoWrapper, {}, [className])}
         >
-            <Icon
-                Svg={AppSvg}
+            <AppSvg
                 height={size}
                 width={size}
+                color="black"
                 className={cls.appLogo}
             />
             <div className={cls.gradientBig} />

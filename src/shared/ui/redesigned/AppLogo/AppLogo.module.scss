@@ -2,6 +2,11 @@
     position: relative;
 }
 
+.appLogo {
+    position: relative;
+    z-index: 10;
+}
+
 .gradientBig {
     position: absolute;
     background: radial-gradient(57.05% 57.05% at 49.84% 42.95%, 
