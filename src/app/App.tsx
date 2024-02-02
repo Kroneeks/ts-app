@@ -11,11 +11,13 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { PageLoader } from '@/widgets/PageLoader/ui/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 export const App = (): React.ReactElement => {
     const { theme, toggleTheme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         // if (!inited) {
@@ -51,7 +53,7 @@ export const App = (): React.ReactElement => {
                     content={<AppRouter />}
                     header={<Navbar />}
                     sidebar={<Sidebar />}
-                    toolbar={<div></div>}
+                    toolbar={toolbar}
                 />
             </Suspense>
         </div>

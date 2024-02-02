@@ -58,8 +58,6 @@ const StarRating = memo((props: StarRatingProps) => {
             )}
         >
             {stars.map((starNumber) => {
-                console.log(starNumber);
-                console.log(currentStarsCount < starNumber);
                 const commonProps = {
                     Svg: StarIcon,
                     className: classNames(
