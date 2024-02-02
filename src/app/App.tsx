@@ -16,7 +16,9 @@ export const App = (): React.ReactElement => {
     const inited = useSelector(getUserInited);
 
     useEffect(() => {
+        // if (!inited) {
         dispatch(initAuthData());
+        // }
     }, [dispatch]);
 
     if (!inited) {

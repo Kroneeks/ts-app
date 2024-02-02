@@ -16,15 +16,21 @@ export const updateFeatureFlag = createAsyncThunk<
 >('user/saveJsonSettings', async ({ userId, newFeatures }, thunkApi) => {
     const { rejectWithValue, dispatch } = thunkApi;
 
+    const allFeatures = {
+        ...getAllFeatureFlags(),
+        ...newFeatures,
+    };
+
     try {
         await dispatch(
             updateFeatureFlagsMutation({
                 userId,
-                features: { ...getAllFeatureFlags(), ...newFeatures },
+                features: allFeatures,
             }),
         );
 
         window.location.reload();
+        // setFeatureFlags(allFeatures);
         return undefined;
     } catch {
         return rejectWithValue('');
