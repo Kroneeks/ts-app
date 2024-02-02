@@ -7,8 +7,10 @@ import { getUserInited, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { PageLoader } from '@/widgets/PageLoader/ui/PageLoader';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { PageLoader } from '@/widgets/PageLoader/ui/PageLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 export const App = (): React.ReactElement => {
     const { theme, toggleTheme } = useTheme();
@@ -23,9 +25,22 @@ export const App = (): React.ReactElement => {
 
     if (!inited) {
         return (
-            <div className={classNames('app', {}, [theme])}>
-                <PageLoader />;
-            </div>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <div
+                        id="app"
+                        className={classNames('app_redesigned', {}, [theme])}
+                    >
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={
+                    <div className={classNames('app', {}, [theme])}>
+                        <PageLoader />;
+                    </div>
+                }
+            />
         );
     }
 
