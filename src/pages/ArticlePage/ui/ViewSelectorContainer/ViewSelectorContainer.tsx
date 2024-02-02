@@ -1,5 +1,4 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
@@ -10,7 +9,6 @@ interface ViewSelectorContainerProps {
 
 const ViewSelectorContainer = memo((props: ViewSelectorContainerProps) => {
     const { className = '' } = props;
-    const { t } = useTranslation();
     const { view, onChangeView } = useArticleFilters();
 
     return (

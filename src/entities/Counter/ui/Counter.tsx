@@ -1,10 +1,8 @@
-import { useDispatch } from 'react-redux';
 import { Button } from '@/shared/ui/deprecated/Button';
 import { useCounterActions } from '../model/slice/counterSlice';
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
 const Counter = () => {
-    const dispatch = useDispatch();
     const counterValue = useCounterValue();
     const { decrement, increment, add } = useCounterActions();
 

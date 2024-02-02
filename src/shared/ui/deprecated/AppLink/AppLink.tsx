@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 import { Link, type LinkProps } from 'react-router-dom';
-import { memo } from 'react';
+import { type ForwardedRef, forwardRef } from 'react';
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',
@@ -18,25 +18,27 @@ interface AppLinkProps extends LinkProps {
  * Component is deprecated, better use components from REDESIGN folder
  * @deprecated
  */
-const AppLink = memo((props: AppLinkProps) => {
-    const {
-        to,
-        className = '',
-        children,
-        theme = AppLinkTheme.PRIMARY,
-        ...otherProps
-    } = props;
+const AppLink = forwardRef(
+    (props: AppLinkProps, ref: ForwardedRef<HTMLInputElement>) => {
+        const {
+            to,
+            className = '',
+            children,
+            theme = AppLinkTheme.PRIMARY,
+            ...otherProps
+        } = props;
 
-    return (
-        <Link
-            to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[theme]])}
-            {...otherProps}
-        >
-            {children}
-        </Link>
-    );
-});
+        return (
+            <Link
+                to={to}
+                className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+                {...otherProps}
+            >
+                {children}
+            </Link>
+        );
+    },
+);
 
 AppLink.displayName = 'AppLink';
 

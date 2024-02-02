@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { Suspense, useEffect } from 'react';
+import { Suspense, memo, useEffect } from 'react';
 import { getUserInited, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -12,8 +12,9 @@ import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { PageLoader } from '@/widgets/PageLoader/ui/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-export const App = (): React.ReactElement => {
+const App = memo(function App() {
     const { theme, toggleTheme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
@@ -21,7 +22,7 @@ export const App = (): React.ReactElement => {
 
     useEffect(() => {
         // if (!inited) {
-        dispatch(initAuthData());
+        void dispatch(initAuthData());
         // }
     }, [dispatch]);
 
@@ -58,4 +59,8 @@ export const App = (): React.ReactElement => {
             </Suspense>
         </div>
     );
-};
+});
+
+App.displayName = 'App';
+
+export default withTheme(App);

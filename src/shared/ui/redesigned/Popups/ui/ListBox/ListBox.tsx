@@ -60,10 +60,11 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 value={selectedPerson}
                 onChange={onChange}
             >
-                <HListBox.Button className={cls.trigger}>
+                <HListBox.Button as={Fragment}>
                     <Button
                         variant="filled"
                         disabled={readonly}
+                        className={cls.trigger}
                         addonRight={
                             <Icon Svg={ArrowIcon} width="24px" height="24px" />
                         }
@@ -76,7 +77,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 >
                     {items?.map((item) => (
                         <HListBox.Option
-                            key={`${item.id}_box`}
+                            key={`${item.value}_box`}
                             value={item.value}
                             disabled={item.disabled}
                             as={Fragment}

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import cls from './AdditionalInfoContainer.module.scss';
 import { memo, useCallback } from 'react';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
@@ -9,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { getRouteArticleEdit } from '@/shared/const/router';
 
 const AdditionalInfoContainer = memo(() => {
-    const { t } = useTranslation();
     const article = useSelector(getArticleDetailsData);
     const navigate = useNavigate();
 

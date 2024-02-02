@@ -16,7 +16,7 @@ const ThemeSwitcher = memo(
 
         const onToggleHandler = useCallback(() => {
             toggleTheme((newTheme) => {
-                dispatch(saveJsonSettings({ theme: newTheme }));
+                void dispatch(saveJsonSettings({ theme: newTheme }));
             });
         }, [toggleTheme, dispatch]);
 
