@@ -9,8 +9,6 @@ import { useSelector } from 'react-redux';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
-import { PageLoader } from '@/widgets/PageLoader/ui/PageLoader';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppToolbar } from './lib/useAppToolbar';
 import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
@@ -28,12 +26,9 @@ const App = memo(function App() {
 
     if (!inited) {
         return (
-            <div
-                                    id="app"
-                                    className={classNames('app_redesigned', {}, [theme])}
-                                >
-                                    <AppLoaderLayout />
-                                </div>
+            <div id="app" className={classNames('app_redesigned', {}, [theme])}>
+                <AppLoaderLayout />
+            </div>
         );
     }
 
@@ -44,7 +39,7 @@ const App = memo(function App() {
                     content={<AppRouter />}
                     header={<Navbar />}
                     sidebar={<Sidebar />}
-                    toolbar={toolbar}
+                    toolbar={<></> /* toolbar */}
                 />
             </Suspense>
         </div>

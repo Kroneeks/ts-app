@@ -30,7 +30,26 @@ const Icon = memo((props: IconProps) => {
         ...otherProps
     } = props;
 
-    const icon = (
+    if (clickable) {
+        return (
+            <button
+                type="button"
+                className={classNames(cls.button, {}, [className])}
+                onClick={props.onClick}
+                style={{ height, width }}
+            >
+                <Svg
+                    className={classNames(cls.Icon, {})}
+                    width={width}
+                    height={height}
+                    {...otherProps}
+                    onClick={undefined}
+                />
+            </button>
+        );
+    }
+
+    return (
         <Svg
             className={classNames(cls.Icon, {}, [className])}
             width={width}
@@ -39,21 +58,6 @@ const Icon = memo((props: IconProps) => {
             onClick={undefined}
         />
     );
-
-    if (clickable) {
-        return (
-            <button
-                type="button"
-                className={cls.button}
-                onClick={props.onClick}
-                style={{ height, width }}
-            >
-                {icon}
-            </button>
-        );
-    }
-
-    return icon;
 });
 
 Icon.displayName = 'Icon';

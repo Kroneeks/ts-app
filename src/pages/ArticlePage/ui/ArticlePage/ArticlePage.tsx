@@ -9,12 +9,10 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { useSearchParams } from 'react-router-dom';
-import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { Page } from '@/widgets/Page';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { fetchNextArticlesPage } from '@/pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlePageGreeting } from '@/features/articlePageGreeting';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
@@ -41,22 +39,22 @@ const ArticlePage = memo(({ className = '' }: ArticlePageProps) => {
 
     const content = (
         <StickyContentLayout
-                            left={<ViewSelectorContainer />}
-                            right={<FiltersContainer />}
-                            content={
-                                <Page
-                                    onScrollEnd={onLoadNextPart}
-                                    className={cls.ArticlePageRedesigned}
-                                    data-testid="ArticlePage"
-                                >
-                                    <ArticleInfiniteList
-                                        onLoadNextPart={onLoadNextPart}
-                                        className={cls.list}
-                                    />
-                                    <ArticlePageGreeting />
-                                </Page>
-                            }
-                        />
+            left={<ViewSelectorContainer />}
+            right={<FiltersContainer />}
+            content={
+                <Page
+                    onScrollEnd={onLoadNextPart}
+                    className={cls.ArticlePageRedesigned}
+                    data-testid="ArticlePage"
+                >
+                    <ArticleInfiniteList
+                        onLoadNextPart={onLoadNextPart}
+                        className={cls.list}
+                    />
+                    <ArticlePageGreeting />
+                </Page>
+            }
+        />
     );
 
     return (
