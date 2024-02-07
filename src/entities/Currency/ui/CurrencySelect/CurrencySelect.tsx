@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Currency } from '../../model/types/currency';
 import { memo, useCallback } from 'react';
-import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CurrencySelectProps {
@@ -13,6 +11,7 @@ interface CurrencySelectProps {
 }
 
 const options = [
+    { value: Currency.BLR, content: Currency.BLR },
     { value: Currency.USD, content: Currency.USD },
     { value: Currency.EUR, content: Currency.EUR },
     { value: Currency.GBP, content: Currency.GBP },
@@ -45,9 +44,7 @@ const CurrencySelect = memo(
             direction: 'top right' as const,
         };
 
-        return (
-            <ListBox {...props} />
-        );
+        return <ListBox {...props} />;
     },
 );
 

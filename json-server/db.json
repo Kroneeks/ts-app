@@ -1087,11 +1087,11 @@
     {
       "id": "1",
       "first": "Саша",
-      "lastname": "Фамилия",
+      "lastname": "Донец",
       "age": 22,
-      "currency": "$ USD",
-      "country": "United States",
-      "city": "Lithuania",
+      "currency": "Br BLR",
+      "country": "Belarus",
+      "city": "Minsk",
       "username": "admin",
       "avatar": "https://pngimg.com/d/baseball_PNG19009.png"
     },

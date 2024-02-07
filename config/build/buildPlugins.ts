@@ -22,7 +22,10 @@ export function buildPlugins({
     const isProd = !isDev;
 
     const plugins = [
-        new HtmlWebpackPlugin({ template: paths.html }),
+        new HtmlWebpackPlugin({
+            template: paths.html,
+            favicon: paths.faviconPath,
+        }),
         new ProgressPlugin(),
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),

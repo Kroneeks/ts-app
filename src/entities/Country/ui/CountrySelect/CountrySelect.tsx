@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { Country } from '../../model/types/country';
-import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CountrySelectProps {
@@ -13,6 +11,7 @@ interface CountrySelectProps {
 }
 
 const options = [
+    { value: Country.Belarus, content: Country.Belarus },
     { value: Country.Lithuania, content: Country.Lithuania },
     { value: Country.Poland, content: Country.Poland },
     { value: Country.US, content: Country.US },
@@ -45,9 +44,7 @@ const CountrySelect = memo(
             direction: 'top right' as const,
         };
 
-        return (
-            <ListBox {...props} />
-        );
+        return <ListBox {...props} />;
     },
 );
 

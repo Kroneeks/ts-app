@@ -30,6 +30,7 @@ const NotificationButton = memo((props: NotificationButtonProps) => {
         <Icon
             Svg={NotificationIcon}
             onClick={onOpenDrawer}
+            className={cls.notificationBell}
             clickable
             width="20px"
             height="20px"
