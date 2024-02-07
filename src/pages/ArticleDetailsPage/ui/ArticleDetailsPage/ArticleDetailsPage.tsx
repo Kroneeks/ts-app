@@ -44,49 +44,25 @@ const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <ToggleFeatures
-                feature="isAppRedesigned"
-                on={
-                    <StickyContentLayout
-                        content={
-                            <Page
-                                className={classNames(
-                                    cls.ArticleDetailsPage,
-                                    {},
-                                    [className],
-                                )}
-                            >
-                                <VStack gap="16" max>
-                                    <DetailsContainer />
-                                    <ArticleRating articleId={id} />
-                                    <ArticleRecommendationsList />
-                                    <ArticleDetailsComments id={id} />
-                                </VStack>
-                            </Page>
-                        }
-                        right={<AdditionalInfoContainer />}
-                    />
-                }
-                off={
-                    <Page className={classNames('', {}, [className])}>
-                        <VStack gap="16" max>
-                            <ArticleDetailsPageHeader />
-                            <ArticleDetails id={id} />
-                            <ToggleFeatures
-                                feature="isArticleRatingEnabled"
-                                on={<ArticleRating articleId={id} />}
-                                off={
-                                    <Card>
-                                        {t('Оценка статей скоро появится')}
-                                    </Card>
-                                }
-                            />
-                            <ArticleRecommendationsList />
-                            <ArticleDetailsComments id={id} />
-                        </VStack>
-                    </Page>
-                }
-            />
+            <StickyContentLayout
+                                    content={
+                                        <Page
+                                            className={classNames(
+                                                cls.ArticleDetailsPage,
+                                                {},
+                                                [className],
+                                            )}
+                                        >
+                                            <VStack gap="16" max>
+                                                <DetailsContainer />
+                                                <ArticleRating articleId={id} />
+                                                <ArticleRecommendationsList />
+                                                <ArticleDetailsComments id={id} />
+                                            </VStack>
+                                        </Page>
+                                    }
+                                    right={<AdditionalInfoContainer />}
+                                />
         </DynamicModuleLoader>
     );
 };

@@ -28,22 +28,12 @@ const App = memo(function App() {
 
     if (!inited) {
         return (
-            <ToggleFeatures
-                feature="isAppRedesigned"
-                on={
-                    <div
-                        id="app"
-                        className={classNames('app_redesigned', {}, [theme])}
-                    >
-                        <AppLoaderLayout />
-                    </div>
-                }
-                off={
-                    <div className={classNames('app', {}, [theme])}>
-                        <PageLoader />;
-                    </div>
-                }
-            />
+            <div
+                                    id="app"
+                                    className={classNames('app_redesigned', {}, [theme])}
+                                >
+                                    <AppLoaderLayout />
+                                </div>
         );
     }
 

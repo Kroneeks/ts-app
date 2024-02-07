@@ -193,34 +193,16 @@ const ArticleList = (props: ArticleListProps) => {
     }
 
     return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <HStack
-                    className={classNames(cls.ArticleListRedesigned, {}, [])}
-                    wrap="wrap"
-                    gap="16"
-                    data-testid="ArticleList"
-                >
-                    {articles.length > 0 ? articles.map(renderArticle) : null}
+        <HStack
+                            className={classNames(cls.ArticleListRedesigned, {}, [])}
+                            wrap="wrap"
+                            gap="16"
+                            data-testid="ArticleList"
+                        >
+                            {articles.length > 0 ? articles.map(renderArticle) : null}
 
-                    {isLoading && getSkeletons(view)}
-                </HStack>
-            }
-            off={
-                <div
-                    className={classNames(cls.ArticleList, {}, [
-                        className,
-                        cls[view],
-                    ])}
-                    data-testid="ArticleList"
-                >
-                    {articles.length > 0 ? articles.map(renderArticle) : null}
-
-                    {isLoading && getSkeletons(view)}
-                </div>
-            }
-        />
+                            {isLoading && getSkeletons(view)}
+                        </HStack>
     );
 };
 

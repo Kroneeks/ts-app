@@ -83,11 +83,7 @@ const Deprecated = () => {
     );
 };
 
-const Skeleton = toggleFeatures({
-    name: 'isAppRedesigned',
-    on: () => SkeletonRedesigned,
-    off: () => SkeletonDeprecated,
-});
+const Skeleton = SkeletonRedesigned;
 
 const Redesigned = () => {
     const article = useSelector(getArticleDetailsData);
@@ -148,33 +144,16 @@ const ArticleDetails = memo((props: ArticleDetailsProps) => {
         );
     } else if (error) {
         content = (
-            <ToggleFeatures
-                feature="isAppRedesigned"
-                on={
-                    <Text
-                        variant="error"
-                        title={t('Произошла ошибка при загрузке статьи')}
-                        align="center"
-                        text={error}
-                    />
-                }
-                off={
-                    <TextDeprecated
-                        theme={TextTheme.ERROR}
-                        title={t('Произошла ошибка при загрузке статьи')}
-                        align={TextAlign.CENTER}
-                        text={error}
-                    />
-                }
-            />
+            <Text
+                                    variant="error"
+                                    title={t('Произошла ошибка при загрузке статьи')}
+                                    align="center"
+                                    text={error}
+                                />
         );
     } else {
         content = (
-            <ToggleFeatures
-                feature="isAppRedesigned"
-                on={<Redesigned />}
-                off={<Deprecated />}
-            />
+            <Redesigned />
         );
     }
 

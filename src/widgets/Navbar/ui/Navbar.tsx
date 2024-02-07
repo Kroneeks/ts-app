@@ -33,11 +33,7 @@ const Navbar = memo(({ className = '' }: NavbarProps): React.ReactElement => {
         setIsAuthModal(true);
     }, []);
 
-    const mainClass = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.NavbarRedesigned,
-        off: () => cls.Navbar,
-    });
+    const mainClass = cls.NavbarRedesigned;
 
     if (authData) {
         return (
@@ -52,27 +48,13 @@ const Navbar = memo(({ className = '' }: NavbarProps): React.ReactElement => {
 
     return (
         <header className={classNames(mainClass, {}, [className])}>
-            <ToggleFeatures
-                feature="isAppRedesigned"
-                on={
-                    <Button
-                        variant="clear"
-                        onClick={onShowModal}
-                        className={classNames(cls.links)}
-                    >
-                        {t('Войти')}
-                    </Button>
-                }
-                off={
-                    <ButtonDeprecated
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                        onClick={onShowModal}
-                        className={classNames(cls.links)}
-                    >
-                        {t('Войти')}
-                    </ButtonDeprecated>
-                }
-            />
+            <Button
+                                    variant="clear"
+                                    onClick={onShowModal}
+                                    className={classNames(cls.links)}
+                                >
+                                    {t('Войти')}
+                                </Button>
             <Portal>
                 {isAuthModal && (
                     <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

@@ -49,26 +49,13 @@ const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     );
 
     return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <Tabs
-                    className={classNames('', {}, [className])}
-                    direction="column"
-                    tabs={typeTabs}
-                    value={value}
-                    onTabClick={onTabClick}
-                />
-            }
-            off={
-                <TabsDeprecated
-                    className={classNames('', {}, [className])}
-                    tabs={typeTabs}
-                    value={value}
-                    onTabClick={onTabClick}
-                />
-            }
-        />
+        <Tabs
+                            className={classNames('', {}, [className])}
+                            direction="column"
+                            tabs={typeTabs}
+                            value={value}
+                            onTabClick={onTabClick}
+                        />
     );
 });
 

@@ -39,16 +39,7 @@ export const ArticleRecommendationsList = memo(
                 className={classNames('', {}, [className])}
                 data-testid="ArticleRecommendationsList"
             >
-                <ToggleFeatures
-                    feature="isAppRedesigned"
-                    on={<Text size="l" title={t('Рекомендуем')} />}
-                    off={
-                        <TextDeprecated
-                            size={TextSize.L}
-                            title={t('Рекомендуем')}
-                        />
-                    }
-                />
+                <Text size="l" title={t('Рекомендуем')} />
                 <ArticleList
                     onLoadNextPart={onLoadNextPart}
                     articles={articles}

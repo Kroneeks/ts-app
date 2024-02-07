@@ -40,42 +40,23 @@ const ArticlePage = memo(({ className = '' }: ArticlePageProps) => {
     }, [dispatch]);
 
     const content = (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <StickyContentLayout
-                    left={<ViewSelectorContainer />}
-                    right={<FiltersContainer />}
-                    content={
-                        <Page
-                            onScrollEnd={onLoadNextPart}
-                            className={cls.ArticlePageRedesigned}
-                            data-testid="ArticlePage"
-                        >
-                            <ArticleInfiniteList
-                                onLoadNextPart={onLoadNextPart}
-                                className={cls.list}
-                            />
-                            <ArticlePageGreeting />
-                        </Page>
-                    }
-                />
-            }
-            off={
-                <Page
-                    onScrollEnd={onLoadNextPart}
-                    className={cls.ArticlePage}
-                    data-testid="ArticlePage"
-                >
-                    <ArticlePageFilters />
-                    <ArticleInfiniteList
-                        onLoadNextPart={onLoadNextPart}
-                        className={cls.list}
-                    />
-                    <ArticlePageGreeting />
-                </Page>
-            }
-        />
+        <StickyContentLayout
+                            left={<ViewSelectorContainer />}
+                            right={<FiltersContainer />}
+                            content={
+                                <Page
+                                    onScrollEnd={onLoadNextPart}
+                                    className={cls.ArticlePageRedesigned}
+                                    data-testid="ArticlePage"
+                                >
+                                    <ArticleInfiniteList
+                                        onLoadNextPart={onLoadNextPart}
+                                        className={cls.list}
+                                    />
+                                    <ArticlePageGreeting />
+                                </Page>
+                            }
+                        />
     );
 
     return (

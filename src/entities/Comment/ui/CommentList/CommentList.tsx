@@ -38,13 +38,7 @@ const CommentList = (props: CommentListProps) => {
                     />
                 ))
             ) : (
-                <ToggleFeatures
-                    feature="isAppRedesigned"
-                    on={<Text title={t('Комментарии отсутствуют')} />}
-                    off={
-                        <TextDeprecated title={t('Комментарии отсутствуют')} />
-                    }
-                />
+                <Text title={t('Комментарии отсутствуют')} />
             )}
         </VStack>
     );

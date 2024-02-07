@@ -23,40 +23,19 @@ const Code = (props: CodeProps) => {
     }, [text]);
 
     return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <pre
-                    className={classNames(cls.CodeRedesigned, {}, [className])}
-                >
-                    <Icon
-                        clickable
-                        onClick={onCopy}
-                        Svg={CopyIcon}
-                        width="20px"
-                        height="20px"
-                        className={cls.copyBtn}
-                    />
-                    <code>{text}</code>
-                </pre>
-            }
-            off={
-                <pre className={classNames(cls.Code, {}, [className])}>
-                    <ButtonDeprecated
-                        onClick={onCopy}
-                        className={cls.copyBtn}
-                        theme={ButtonTheme.CLEAR}
-                    >
-                        <IconDeprecated
-                            Svg={CopyIcon}
-                            width="20px"
-                            height="20px"
-                        />
-                    </ButtonDeprecated>
-                    <code>{text}</code>
-                </pre>
-            }
-        />
+        <pre
+                            className={classNames(cls.CodeRedesigned, {}, [className])}
+                        >
+                            <Icon
+                                clickable
+                                onClick={onCopy}
+                                Svg={CopyIcon}
+                                width="20px"
+                                height="20px"
+                                className={cls.copyBtn}
+                            />
+                            <code>{text}</code>
+                        </pre>
     );
 };
 

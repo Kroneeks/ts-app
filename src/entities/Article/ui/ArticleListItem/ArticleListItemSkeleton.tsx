@@ -16,23 +16,11 @@ interface ArticleListItemSkeletonProps {
 const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps) => {
     const { className = '', view } = props;
 
-    const mainClass = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.ArticleListItemRedesigned,
-        off: () => cls.ArticleListItem,
-    });
+    const mainClass = cls.ArticleListItemRedesigned;
 
-    const Skeleton = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => SkeletonRedesigned,
-        off: () => SkeletonDeprecated,
-    });
+    const Skeleton = SkeletonRedesigned;
 
-    const Card = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => CardRedesigned,
-        off: () => CardDeprecated,
-    });
+    const Card = CardRedesigned;
 
     if (view === ArticleView.LIST) {
         return (

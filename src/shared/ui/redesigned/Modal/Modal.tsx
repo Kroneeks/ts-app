@@ -50,11 +50,7 @@ const Modal = (props: ModalProps) => {
                     className,
                     theme,
                     'modal',
-                    toggleFeatures({
-                        name: 'isAppRedesigned',
-                        on: () => cls.modalNew,
-                        off: () => cls.modalOld,
-                    }),
+                    cls.modalNew,
                 ])}
             >
                 <Overlay onClick={close} />

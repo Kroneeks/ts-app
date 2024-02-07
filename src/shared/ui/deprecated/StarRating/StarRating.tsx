@@ -48,11 +48,7 @@ const StarRating = memo((props: StarRatingProps) => {
     return (
         <div
             className={classNames(
-                toggleFeatures({
-                    name: 'isAppRedesigned',
-                    on: () => cls.StarRatingRedesigned,
-                    off: () => cls.StarRating,
-                }),
+                cls.StarRatingRedesigned,
                 {},
                 [className],
             )}
@@ -79,12 +75,7 @@ const StarRating = memo((props: StarRatingProps) => {
                 };
 
                 return (
-                    <ToggleFeatures
-                        key={starNumber}
-                        feature="isAppRedesigned"
-                        on={<Icon clickable={!isSelected} {...commonProps} />}
-                        off={<IconDeprecated {...commonProps} />}
-                    />
+                    <Icon clickable={!isSelected} {...commonProps} />
                 );
             })}
         </div>

@@ -24,11 +24,7 @@ interface ArticleViewSelectorProps {
 const viewTypes = [
     {
         view: ArticleView.LIST,
-        icon: toggleFeatures({
-            name: 'isAppRedesigned',
-            on: () => ListIcon,
-            off: () => ListIconDeprecated,
-        }),
+        icon: ListIcon,
     },
     {
         view: ArticleView.BLOCK,
@@ -44,67 +40,33 @@ const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     };
 
     return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <Card
-                    borderR="xl-round"
-                    className={classNames(
-                        cls.ArticleViewSelectorRedesigned,
-                        {},
-                        [className],
-                    )}
-                >
-                    <HStack gap="8">
-                        {viewTypes.map((viewType) => (
-                            <Icon
-                                key={viewType.view}
-                                Svg={viewType.icon}
-                                clickable
-                                onClick={onClick(viewType.view)}
-                                className={classNames(
-                                    '',
-                                    {
-                                        [cls.notSelected]:
-                                            viewType.view !== view,
-                                    },
-                                    [],
-                                )}
-                            />
-                        ))}
-                    </HStack>
-                </Card>
-            }
-            off={
-                <div
-                    className={classNames(cls.ArticleViewSelector, {}, [
-                        className,
-                    ])}
-                >
-                    {viewTypes.map((viewType) => (
-                        <ButtonDeprecated
-                            key={viewType.view}
-                            theme={ButtonTheme.CLEAR}
-                            onClick={onClick(viewType.view)}
+        <Card
+                            borderR="xl-round"
+                            className={classNames(
+                                cls.ArticleViewSelectorRedesigned,
+                                {},
+                                [className],
+                            )}
                         >
-                            <IconDeprecated
-                                Svg={viewType.icon}
-                                width="20px"
-                                height="20px"
-                                className={classNames(
-                                    '',
-                                    {
-                                        [cls.notSelected]:
-                                            viewType.view !== view,
-                                    },
-                                    [],
-                                )}
-                            />
-                        </ButtonDeprecated>
-                    ))}
-                </div>
-            }
-        />
+                            <HStack gap="8">
+                                {viewTypes.map((viewType) => (
+                                    <Icon
+                                        key={viewType.view}
+                                        Svg={viewType.icon}
+                                        clickable
+                                        onClick={onClick(viewType.view)}
+                                        className={classNames(
+                                            '',
+                                            {
+                                                [cls.notSelected]:
+                                                    viewType.view !== view,
+                                            },
+                                            [],
+                                        )}
+                                    />
+                                ))}
+                            </HStack>
+                        </Card>
     );
 });
 

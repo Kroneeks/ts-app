@@ -24,11 +24,7 @@ interface CommentCardProps {
 const CommentCard = memo((props: CommentCardProps) => {
     const { className = '', comment, isLoading = false } = props;
 
-    const Skeleton = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => SkeletonRedesigned,
-        off: () => SkeletonDeprecated,
-    });
+    const Skeleton = SkeletonRedesigned;
 
     if (isLoading) {
         return (
@@ -52,56 +48,29 @@ const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-                <Card padding="24" borderR="sm-round" max>
-                    <VStack
-                        gap="8"
-                        max
-                        className={classNames(cls.CommentCardRedesigned, {}, [
-                            className,
-                        ])}
-                        data-testid="CommentCard.Content"
-                    >
-                        <AppLink to={getRouteProfile(comment.user.id)}>
-                            <HStack gap="8">
-                                {comment.user.avatar ? (
-                                    <Avatar
-                                        size={40}
-                                        src={comment.user.avatar}
-                                    />
-                                ) : null}
-                                <Text text={comment.user.username} bold />
-                            </HStack>
-                        </AppLink>
-                        <Text text={comment.text} />
-                    </VStack>
-                </Card>
-            }
-            off={
-                <VStack
-                    gap="8"
-                    max
-                    className={classNames(cls.CommentCard, {}, [className])}
-                    data-testid="CommentCard.Content"
-                >
-                    <AppLinkDeprecated
-                        to={getRouteProfile(comment.user.id)}
-                        className={cls.header}
-                    >
-                        <AvatarDeprecated
-                            src={
-                                comment.user.avatar ??
-                                'https://cdn-icons-png.flaticon.com/512/456/456212.png'
-                            }
-                        />
-                        <TextDeprecated title={comment.user.username} />
-                    </AppLinkDeprecated>
-                    <TextDeprecated className={cls.body} text={comment.text} />
-                </VStack>
-            }
-        />
+        <Card padding="24" borderR="sm-round" max>
+                            <VStack
+                                gap="8"
+                                max
+                                className={classNames(cls.CommentCardRedesigned, {}, [
+                                    className,
+                                ])}
+                                data-testid="CommentCard.Content"
+                            >
+                                <AppLink to={getRouteProfile(comment.user.id)}>
+                                    <HStack gap="8">
+                                        {comment.user.avatar ? (
+                                            <Avatar
+                                                size={40}
+                                                src={comment.user.avatar}
+                                            />
+                                        ) : null}
+                                        <Text text={comment.user.username} bold />
+                                    </HStack>
+                                </AppLink>
+                                <Text text={comment.text} />
+                            </VStack>
+                        </Card>
     );
 });
 

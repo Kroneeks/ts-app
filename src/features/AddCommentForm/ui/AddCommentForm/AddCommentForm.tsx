@@ -50,62 +50,33 @@ const AddCommentForm = (props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <ToggleFeatures
-                feature="isAppRedesigned"
-                on={
-                    <Card padding="24" borderR="sm-round" max>
-                        <HStack
-                            max
-                            gap="16"
-                            justify="between"
-                            className={classNames(
-                                cls.AddCommentFormRedesigned,
-                                {},
-                                [className],
-                            )}
-                            data-testid="AddCommentForm"
-                        >
-                            <Input
-                                className={cls.input}
-                                value={text}
-                                onChange={onCommentTextChange}
-                                placeholder={t('Введите текст комментария')}
-                                data-testid="AddCommentForm.Input"
-                            />
-                            <Button
-                                onClick={onSendHandler}
-                                data-testid="AddCommentForm.Button"
-                            >
-                                {t('Отправить')}
-                            </Button>
-                        </HStack>
-                    </Card>
-                }
-                off={
-                    <HStack
-                        max
-                        justify="between"
-                        className={classNames(cls.AddCommentForm, {}, [
-                            className,
-                        ])}
-                        data-testid="AddCommentForm"
-                    >
-                        <InputDeprecated
-                            className={cls.input}
-                            value={text}
-                            onChange={onCommentTextChange}
-                            placeholder={t('Введите текст комментария')}
-                            data-testid="AddCommentForm.Input"
-                        />
-                        <ButtonDeprecated
-                            onClick={onSendHandler}
-                            data-testid="AddCommentForm.Button"
-                        >
-                            {t('Отправить')}
-                        </ButtonDeprecated>
-                    </HStack>
-                }
-            />
+            <Card padding="24" borderR="sm-round" max>
+                                    <HStack
+                                        max
+                                        gap="16"
+                                        justify="between"
+                                        className={classNames(
+                                            cls.AddCommentFormRedesigned,
+                                            {},
+                                            [className],
+                                        )}
+                                        data-testid="AddCommentForm"
+                                    >
+                                        <Input
+                                            className={cls.input}
+                                            value={text}
+                                            onChange={onCommentTextChange}
+                                            placeholder={t('Введите текст комментария')}
+                                            data-testid="AddCommentForm.Input"
+                                        />
+                                        <Button
+                                            onClick={onSendHandler}
+                                            data-testid="AddCommentForm.Button"
+                                        >
+                                            {t('Отправить')}
+                                        </Button>
+                                    </HStack>
+                                </Card>
         </DynamicModuleLoader>
     );
 };
